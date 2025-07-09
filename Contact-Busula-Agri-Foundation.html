@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Busula Agri Foundation</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.map-container {
+background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
+background-position: center;
+background-size: cover;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+border-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-white ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-primary">Busula Agri Foundation</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Donate</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/e7ddc9eb-7ace-4652-88cc-8bdda4f76beb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Volunteer</a>
+<a href="#" class="text-primary font-medium border-b-2 border-primary">Contact</a>
+</nav>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button whitespace-nowrap">Donate Now</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Donate</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Volunteer</a>
+<a href="#" class="text-primary font-medium py-2">Contact</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button text-center whitespace-nowrap">Donate Now</a>
+</div>
+</div>
+</header>
+<!-- Breadcrumb -->
+<div class="bg-gray-100 py-2">
+<div class="container mx-auto px-4">
+<div class="flex items-center text-sm text-gray-600">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="hover:text-primary">Home</a>
+<i class="ri-arrow-right-s-line mx-2"></i>
+<span class="text-primary">Contact</span>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="bg-primary/10 py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<div class="w-16 h-16 mx-auto mb-6 bg-primary/20 rounded-full flex items-center justify-center">
+<i class="ri-contacts-line text-primary ri-xl"></i>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Get in Touch</h1>
+<p class="text-lg text-gray-600 mb-8">We'd love to hear from you. Whether you have a question about our programs, donations, volunteering, or anything else, our team is ready to answer all your inquiries.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#contact-form" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium whitespace-nowrap">Send a Message</a>
+<a href="tel:+254712345678" class="bg-white border border-primary text-primary hover:bg-gray-50 px-8 py-3 !rounded-button font-medium whitespace-nowrap flex items-center gap-2">
+<i class="ri-phone-line"></i>
+<span>Call Us</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Information Cards -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+<!-- Address Card -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-map-pin-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Our Location</h3>
+<p class="text-gray-600 mb-4">123 Mombasa Road<br>Nairobi, Kenya<br>P.O. Box 12345-00100</p>
+<a href="#location" class="text-primary font-medium hover:underline flex items-center gap-1">
+<span>View on Map</span>
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- Phone Card -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-phone-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Phone Numbers</h3>
+<p class="text-gray-600 mb-1">Main Office: +254 712 345 678</p>
+<p class="text-gray-600 mb-4">Mobile: +254 723 456 789</p>
+<a href="tel:+254712345678" class="text-primary font-medium hover:underline flex items-center gap-1">
+<span>Call Now</span>
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- Email Card -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-mail-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Email Addresses</h3>
+<p class="text-gray-600 mb-1">General: info@busulaagri.org</p>
+<p class="text-gray-600 mb-4">Support: support@busulaagri.org</p>
+<a href="mailto:info@busulaagri.org" class="text-primary font-medium hover:underline flex items-center gap-1">
+<span>Email Us</span>
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- Hours Card -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-time-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Office Hours</h3>
+<p class="text-gray-600 mb-1">Monday - Friday: 9am - 5pm</p>
+<p class="text-gray-600 mb-4">Saturday: 10am - 2pm<br>Sunday: Closed</p>
+<span class="text-primary font-medium flex items-center gap-1">
+<span>East Africa Time (EAT)</span>
+</span>
+</div>
+</div>
+<!-- Department Contacts -->
+<h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Department Contacts</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<!-- Donation Support -->
+<div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<i class="ri-hand-heart-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Donation Support</h4>
+<p class="text-gray-600 text-sm mb-2">For questions about donations, tax receipts, or financial support.</p>
+<a href="mailto:donations@busulaagri.org" class="text-primary text-sm font-medium hover:underline">donations@busulaagri.org</a>
+</div>
+</div>
+</div>
+<!-- Volunteer Coordination -->
+<div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<i class="ri-user-heart-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Volunteer Coordination</h4>
+<p class="text-gray-600 text-sm mb-2">For information about volunteering opportunities and schedules.</p>
+<a href="mailto:volunteer@busulaagri.org" class="text-primary text-sm font-medium hover:underline">volunteer@busulaagri.org</a>
+</div>
+</div>
+</div>
+<!-- Media Relations -->
+<div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<i class="ri-camera-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Media Relations</h4>
+<p class="text-gray-600 text-sm mb-2">For press inquiries, interviews, and media resources.</p>
+<a href="mailto:media@busulaagri.org" class="text-primary text-sm font-medium hover:underline">media@busulaagri.org</a>
+</div>
+</div>
+</div>
+<!-- Program Information -->
+<div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<i class="ri-seedling-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Program Information</h4>
+<p class="text-gray-600 text-sm mb-2">For details about our agricultural and educational programs.</p>
+<a href="mailto:programs@busulaagri.org" class="text-primary text-sm font-medium hover:underline">programs@busulaagri.org</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form & Map Section -->
+<section id="contact-form" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Contact Form -->
+<div>
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+<p class="text-gray-600 mb-8">Fill out the form below, and we'll get back to you as soon as possible. We value your feedback and inquiries.</p>
+<form id="contactForm" class="space-y-6">
+<!-- Name Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="firstName" class="block text-gray-700 font-medium mb-2">First Name*</label>
+<input type="text" id="firstName" name="firstName" class="w-full border border-gray-300 rounded-button py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" required>
+</div>
+<div>
+<label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name*</label>
+<input type="text" id="lastName" name="lastName" class="w-full border border-gray-300 rounded-button py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" required>
+</div>
+</div>
+<!-- Email -->
+<div>
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address*</label>
+<input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-button py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" required>
+</div>
+<!-- Subject -->
+<div>
+<label for="subject" class="block text-gray-700 font-medium mb-2">Subject*</label>
+<div class="relative">
+<select id="subject" name="subject" class="w-full appearance-none border border-gray-300 rounded-button py-2 px-3 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white" required>
+<option value="">Select a subject</option>
+<option value="General Inquiry">General Inquiry</option>
+<option value="Donation Support">Donation Support</option>
+<option value="Volunteer Opportunities">Volunteer Opportunities</option>
+<option value="Media Contact">Media Contact</option>
+<option value="Program Information">Program Information</option>
+<option value="Other">Other</option>
+</select>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<!-- Message -->
+<div>
+<label for="message" class="block text-gray-700 font-medium mb-2">Message*</label>
+<textarea id="message" name="message" rows="5" class="w-full border border-gray-300 rounded-button py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" required></textarea>
+</div>
+<!-- Newsletter Opt-in -->
+<div class="flex items-start gap-2">
+<input type="checkbox" id="newsletter" name="newsletter" class="custom-checkbox mt-1">
+<label for="newsletter" class="text-gray-700">Subscribe to our newsletter to receive updates about our programs and impact</label>
+</div>
+<!-- Submit Button -->
+<div>
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium whitespace-nowrap">Send Message</button>
+</div>
+</form>
+<!-- Success Message (Hidden by default) -->
+<div id="successMessage" class="hidden mt-6 bg-green-100 border border-green-200 text-green-800 rounded-lg p-4">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-green-600"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Message Sent Successfully!</h4>
+<p class="text-sm">Thank you for contacting us. We'll respond to your inquiry as soon as possible.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map & Location Info -->
+<div>
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Our Location</h2>
+<div id="location" class="rounded-lg overflow-hidden shadow-sm mb-6">
+<div class="map-container h-80 w-full"></div>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm mb-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">How to Find Us</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Address</h4>
+<p class="text-gray-600 text-sm">123 Mombasa Road, Nairobi, Kenya</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-direction-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Directions</h4>
+<p class="text-gray-600 text-sm">Located 5km from Nairobi city center, near the South B Junction. Look for the green building with "Busula Agri" signage.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-parking-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Parking</h4>
+<p class="text-gray-600 text-sm">Free parking available on-site for visitors. Additional parking available at the adjacent shopping center.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-bus-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Public Transportation</h4>
+<p class="text-gray-600 text-sm">Bus routes 34, 45, and 60 stop directly in front of our building. The nearest matatu stage is South B, a 5-minute walk away.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-lg p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Visit Us</h3>
+<p class="text-gray-600 mb-4">We welcome visitors during our office hours. If you'd like to schedule a tour of our facilities or meet with specific team members, please contact us in advance to arrange an appointment.</p>
+<a href="tel:+254712345678" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap">Schedule a Visit</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-question-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+<p class="text-gray-600">Find quick answers to common questions about contacting us</p>
+</div>
+<div class="space-y-6">
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">What is your typical response time?</h3>
+<p class="text-gray-600">
+We aim to respond to all inquiries within 24-48 hours during business days. For urgent matters, please call our office directly at +254 712 345 678.
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">What's the best way to contact you?</h3>
+<p class="text-gray-600">
+For general inquiries, our contact form or email is best. For urgent matters, please call us directly. If you need to speak with a specific department, please use the department-specific email addresses listed above.
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Who should I contact in case of an emergency?</h3>
+<p class="text-gray-600">
+For emergencies related to our programs or facilities, please call our emergency hotline at +254 789 012 345, available 24/7. For medical or security emergencies, please contact local emergency services first.
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">How can I submit documents to you?</h3>
+<p class="text-gray-600">
+Documents can be submitted via email to the appropriate department, or through our secure document upload portal on our website. For physical documents, you can mail them to our office address or deliver them in person during office hours.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Media Section -->
+<section class="py-16 bg-primary/10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
+<i class="ri-global-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Connect With Us</h2>
+<p class="text-gray-600 text-lg mb-8">Follow us on social media to stay updated with our latest news, events, and success stories.</p>
+<div class="flex flex-wrap justify-center gap-6 mb-10">
+<a href="#" class="bg-white hover:bg-gray-50 rounded-full w-14 h-14 flex items-center justify-center shadow-sm transition-all hover:shadow">
+<i class="ri-facebook-fill text-blue-600 ri-xl"></i>
+</a>
+<a href="#" class="bg-white hover:bg-gray-50 rounded-full w-14 h-14 flex items-center justify-center shadow-sm transition-all hover:shadow">
+<i class="ri-twitter-fill text-blue-400 ri-xl"></i>
+</a>
+<a href="#" class="bg-white hover:bg-gray-50 rounded-full w-14 h-14 flex items-center justify-center shadow-sm transition-all hover:shadow">
+<i class="ri-instagram-fill text-pink-600 ri-xl"></i>
+</a>
+<a href="#" class="bg-white hover:bg-gray-50 rounded-full w-14 h-14 flex items-center justify-center shadow-sm transition-all hover:shadow">
+<i class="ri-linkedin-fill text-blue-700 ri-xl"></i>
+</a>
+<a href="#" class="bg-white hover:bg-gray-50 rounded-full w-14 h-14 flex items-center justify-center shadow-sm transition-all hover:shadow">
+<i class="ri-youtube-fill text-red-600 ri-xl"></i>
+</a>
+</div>
+<div class="bg-white rounded-lg p-8 shadow-sm">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Subscribe to Our Newsletter</h3>
+<p class="text-gray-600 mb-6">Stay informed about our programs, events, and impact stories by subscribing to our monthly newsletter.</p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+<input type="email" placeholder="Your email address" class="flex-1 border border-gray-300 rounded-button py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-8 md:p-12 shadow-sm text-center">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Ready to Make a Difference?</h2>
+<p class="text-gray-600 text-lg mb-8">Support our mission to improve the lives of vulnerable children through sustainable agriculture, education, and community development.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium whitespace-nowrap">Donate Now</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/e7ddc9eb-7ace-4652-88cc-8bdda4f76beb" data-readdy="true" class="bg-white border border-primary text-primary hover:bg-gray-50 px-8 py-3 !rounded-button font-medium whitespace-nowrap">Volunteer</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-white">Busula Agri</span>
+</a>
+<p class="text-gray-400 mb-4">Dedicated to improving the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex gap-4">
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/e7ddc9eb-7ace-4652-88cc-8bdda4f76beb" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Volunteer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sponsor a Child</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corporate Partnerships</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fundraise for Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-3">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400">123 Mombasa Road, Nairobi, Kenya</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-mail-line text-primary mt-1"></i>
+<span class="text-gray-400">info@busulaagri.org</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-phone-line text-primary mt-1"></i>
+<span class="text-gray-400">+254 712 345 678</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-time-line text-primary mt-1"></i>
+<span class="text-gray-400">Mon-Fri: 9am-5pm EAT</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Busula Agri Foundation. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+});
+</script>
+<script id="contact-form-script">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.getElementById('contactForm');
+const successMessage = document.getElementById('successMessage');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Simulate form submission
+setTimeout(function() {
+contactForm.reset();
+successMessage.classList.remove('hidden');
+// Hide success message after 5 seconds
+setTimeout(function() {
+successMessage.classList.add('hidden');
+}, 5000);
+}, 1000);
+});
+});
+</script>
+</body>
+</html>

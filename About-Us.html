@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Busula Agri Foundation</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.timeline-item::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+bottom: 0;
+width: 1px;
+background-color: #e5e7eb;
+}
+.timeline-dot {
+position: absolute;
+left: -5px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #4CAF50;
+}
+.team-card:hover .team-social {
+opacity: 1;
+transform: translateY(0);
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+border-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-white ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-primary">Busula Agri Foundation</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Home</a>
+<a href="#" class="text-primary font-medium border-b-2 border-primary">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Donate</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium">Volunteer</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+</nav>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/f3aafed1-cced-46de-b913-5f34e2fe024a" data-readdy="true" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button whitespace-nowrap">Donate Now</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="#" class="text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Donate</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Volunteer</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Contact</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/f3aafed1-cced-46de-b913-5f34e2fe024a" data-readdy="true" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button text-center whitespace-nowrap">Donate Now</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section w-full relative" style="background-image: url('https://readdy.ai/api/search-image?query=A%20panoramic%20view%20of%20a%20thriving%20agricultural%20community%20in%20rural%20Africa.%20The%20scene%20shows%20lush%20green%20fields%20with%20various%20crops%2C%20irrigation%20systems%2C%20and%20people%20of%20all%20ages%20working%20together.%20In%20the%20background%2C%20there%20are%20modest%20buildings%20including%20a%20school%20and%20community%20center.%20The%20image%20captures%20the%20essence%20of%20sustainable%20agriculture%20and%20community%20development%20with%20clear%20blue%20skies%20and%20distant%20mountains%20creating%20a%20hopeful%20atmosphere.&width=1920&height=600&seq=about-hero&orientation=landscape');">
+<div class="absolute inset-0 bg-black/50"></div>
+<div class="container mx-auto px-4 py-24 relative z-10">
+<div class="max-w-3xl mx-auto text-center text-white">
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Our Story & Mission</h1>
+<p class="text-lg md:text-xl mb-8">Transforming lives through sustainable agriculture, education, and community empowerment since 2015.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#mission" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Our Mission</a>
+<a href="#team" class="bg-white hover:bg-gray-100 text-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Meet Our Team</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision Section -->
+<section id="mission" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-focus-3-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Mission & Vision</h2>
+<p class="text-gray-600">Dedicated to creating sustainable solutions that empower vulnerable children and communities through agricultural innovation, education, and holistic support.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-compass-3-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+<p class="text-gray-600 mb-6">To transform the lives of vulnerable children in Africa by providing access to sustainable agricultural knowledge, quality education, and community support systems that foster self-reliance and long-term prosperity.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Provide nutritional security through sustainable farming</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Ensure access to quality education for all children</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Build resilient community support systems</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Empower families through skills development</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-eye-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
+<p class="text-gray-600 mb-6">We envision a future where every child in Africa has access to nutritious food, quality education, and the opportunity to thrive in self-sustaining communities that preserve the environment for future generations.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Communities free from hunger and malnutrition</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Children empowered through education and mentorship</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Sustainable agricultural practices that protect the environment</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-600">Self-reliant communities that drive their own development</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Founder's Story Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-book-open-line text-primary ri-xl"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Founder's Story</h2>
+<p class="text-gray-600 mb-6">The Busula Agri Foundation was born from Fred Wandela's personal journey and deep commitment to creating sustainable change in vulnerable communities across Africa.</p>
+<div class="mb-6">
+<blockquote class="italic text-gray-700 border-l-4 border-primary pl-4 py-2">
+"Growing up in rural Kenya, I witnessed firsthand how agricultural knowledge could transform communities and create pathways out of poverty. Every child deserves access to nutritious food, quality education, and the opportunity to build a better future."
+<footer class="text-gray-500 mt-2 not-italic">— Fred Wandela, Founder & CEO</footer>
+</blockquote>
+</div>
+<p class="text-gray-600 mb-6">After completing his agricultural studies and working with international development organizations, Fred returned to his home region in 2015 with a vision to create a foundation that would address the root causes of child vulnerability through sustainable agriculture and education.</p>
+<p class="text-gray-600">What began as a small community garden project with 15 children has grown into a comprehensive organization serving over 1,200 children across 42 communities, demonstrating the power of sustainable solutions to create lasting change.</p>
+</div>
+<div class="relative">
+<img src="https://static.readdy.ai/image/824a0ce02399c182dd9ef1d09ae2a41b/c01204cfbd769ee4b667b4d08b210fae.jfif" alt="Fred Fandela - Founder & CEO" class="w-full h-auto rounded-lg shadow-lg">
+<div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-md">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-award-line text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Fred Wandela</h4>
+<p class="text-gray-600 text-sm">Founder & CEO</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline -->
+<div class="max-w-3xl mx-auto mt-20">
+<h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Our Journey</h3>
+<div class="relative pl-8 space-y-8">
+<!-- 2015 -->
+<div class="relative timeline-item pl-8 pb-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2015</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Foundation Established</h4>
+<p class="text-gray-600">Fred Fandela established the Busula Agri Foundation with a small community garden project serving 15 children in Kakamega County, Kenya.</p>
+</div>
+<!-- 2017 -->
+<div class="relative timeline-item pl-8 pb-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2017</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">First School Partnership</h4>
+<p class="text-gray-600">Launched our first school-based agricultural program, integrating sustainable farming education into the curriculum for 120 students.</p>
+</div>
+<!-- 2019 -->
+<div class="relative timeline-item pl-8 pb-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2019</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Community Expansion</h4>
+<p class="text-gray-600">Expanded to 15 communities across three counties, reaching over 500 children through agricultural training and educational support.</p>
+</div>
+<!-- 2021 -->
+<div class="relative timeline-item pl-8 pb-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2021</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Training Center Established</h4>
+<p class="text-gray-600">Opened our first Agricultural Training Center providing advanced farming techniques, entrepreneurship skills, and mentorship programs.</p>
+</div>
+<!-- 2023 -->
+<div class="relative timeline-item pl-8 pb-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2023</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">International Recognition</h4>
+<p class="text-gray-600">Received the Sustainable Development Impact Award for our innovative approach to addressing child vulnerability through agriculture.</p>
+</div>
+<!-- 2025 -->
+<div class="relative timeline-item pl-8">
+<div class="timeline-dot top-0"></div>
+<div class="font-bold text-primary mb-2">2025</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Reaching New Heights</h4>
+<p class="text-gray-600">Currently serving over 1,200 children across 42 communities with comprehensive programs in sustainable agriculture, education, and community development.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Values Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-heart-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
+<p class="text-gray-600">These principles guide our work and define our approach to creating sustainable change in communities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Sustainability -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-recycle-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Sustainability</h3>
+<p class="text-gray-600">We develop solutions that meet present needs while preserving resources for future generations, ensuring long-term impact.</p>
+</div>
+<!-- Community Empowerment -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-team-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Community Empowerment</h3>
+<p class="text-gray-600">We believe in building community capacity and ownership, enabling people to drive their own development.</p>
+</div>
+<!-- Innovation -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-lightbulb-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Innovation</h3>
+<p class="text-gray-600">We continuously seek creative solutions and adapt our approaches to address complex challenges effectively.</p>
+</div>
+<!-- Education -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-book-open-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Education</h3>
+<p class="text-gray-600">We believe knowledge is transformative, empowering individuals to create better futures for themselves and their communities.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section id="team" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-star-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Leadership Team</h2>
+<p class="text-gray-600">Meet the dedicated professionals who guide our mission and drive our impact.</p>
+</div>
+<!-- Leadership Team -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+<!-- Fred Fandela -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm team-card group">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20an%20African%20man%20in%20his%20mid-40s%20wearing%20business%20casual%20attire%20with%20a%20light%20blue%20shirt.%20He%20has%20a%20warm%2C%20confident%20smile%20and%20appears%20approachable%20yet%20professional.%20The%20background%20is%20neutral%20and%20non-distracting%2C%20focusing%20attention%20on%20his%20face.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20professional%20headshot%20suitable%20for%20a%20foundation%20leader.&width=400&height=500&seq=team1&orientation=portrait" alt="Fred Fandela" class="w-full h-full object-cover object-top transition-transform group-hover:scale-105">
+</div>
+<div class="p-6 relative">
+<div class="absolute -top-8 right-6 opacity-0 transform translate-y-4 team-social transition-all duration-300 flex gap-2">
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-twitter-fill"></i>
+</a>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Fred Fandela</h3>
+<p class="text-primary font-medium mb-3">Founder & CEO</p>
+<p class="text-gray-600 text-sm">Agricultural economist with 15+ years of experience in sustainable development across East Africa.</p>
+</div>
+</div>
+<!-- Grace Mwangi -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm team-card group">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20an%20African%20woman%20in%20her%20late%2030s%20with%20a%20confident%20expression.%20She%20is%20wearing%20professional%20business%20attire%20with%20a%20blazer.%20Her%20hair%20is%20styled%20neatly%20and%20she%20has%20a%20warm%2C%20approachable%20smile.%20The%20background%20is%20neutral%20and%20clean%2C%20creating%20a%20professional%20headshot%20suitable%20for%20an%20executive%20director.%20The%20lighting%20is%20flattering%20and%20even.&width=400&height=500&seq=team2&orientation=portrait" alt="Grace Mwangi" class="w-full h-full object-cover object-top transition-transform group-hover:scale-105">
+</div>
+<div class="p-6 relative">
+<div class="absolute -top-8 right-6 opacity-0 transform translate-y-4 team-social transition-all duration-300 flex gap-2">
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-twitter-fill"></i>
+</a>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Grace Mwangi</h3>
+<p class="text-primary font-medium mb-3">Executive Director</p>
+<p class="text-gray-600 text-sm">Former NGO leader with expertise in program development and community-based approaches.</p>
+</div>
+</div>
+<!-- Dr. Samuel Ochieng -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm team-card group">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20an%20African%20man%20in%20his%20early%2050s%20wearing%20glasses%20and%20professional%20attire.%20He%20has%20a%20thoughtful%20expression%20and%20appears%20scholarly%20and%20experienced.%20He%20has%20short%20gray%20hair%20and%20a%20well-groomed%20appearance.%20The%20background%20is%20neutral%20and%20professional.%20The%20lighting%20is%20even%20and%20flattering%2C%20creating%20a%20dignified%20portrait%20suitable%20for%20an%20agricultural%20research%20director.&width=400&height=500&seq=team3&orientation=portrait" alt="Dr. Samuel Ochieng" class="w-full h-full object-cover object-top transition-transform group-hover:scale-105">
+</div>
+<div class="p-6 relative">
+<div class="absolute -top-8 right-6 opacity-0 transform translate-y-4 team-social transition-all duration-300 flex gap-2">
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-twitter-fill"></i>
+</a>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Samuel Ochieng</h3>
+<p class="text-primary font-medium mb-3">Agricultural Research Director</p>
+<p class="text-gray-600 text-sm">PhD in Agricultural Sciences with research focus on sustainable farming methods for African climates.</p>
+</div>
+</div>
+<!-- Amina Wanjiku -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm team-card group">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20young%20African%20woman%20in%20her%20early%2030s%20with%20a%20bright%2C%20engaging%20smile.%20She%20is%20wearing%20smart%20casual%20professional%20attire.%20Her%20expression%20is%20friendly%20and%20approachable.%20The%20background%20is%20simple%20and%20clean%2C%20creating%20a%20professional%20headshot%20suitable%20for%20an%20education%20program%20director.%20The%20lighting%20is%20warm%20and%20flattering.&width=400&height=500&seq=team4&orientation=portrait" alt="Amina Wanjiku" class="w-full h-full object-cover object-top transition-transform group-hover:scale-105">
+</div>
+<div class="p-6 relative">
+<div class="absolute -top-8 right-6 opacity-0 transform translate-y-4 team-social transition-all duration-300 flex gap-2">
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+<i class="ri-twitter-fill"></i>
+</a>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Amina Wanjiku</h3>
+<p class="text-primary font-medium mb-3">Education Program Director</p>
+<p class="text-gray-600 text-sm">Former teacher with 10+ years experience developing innovative educational programs for rural schools.</p>
+</div>
+</div>
+</div>
+<!-- Board of Directors -->
+<div class="mb-16">
+<h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Board of Directors</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20African%20woman%20in%20her%20mid-50s%20with%20a%20dignified%20expression.%20She%20is%20wearing%20formal%20business%20attire%20and%20has%20a%20confident%2C%20authoritative%20presence.%20Her%20hair%20is%20styled%20professionally%20and%20she%20has%20minimal%20jewelry.%20The%20background%20is%20plain%20and%20professional.%20The%20lighting%20creates%20a%20formal%20portrait%20suitable%20for%20a%20board%20chairperson.&width=80&height=80&seq=board1&orientation=squarish" alt="Dr. Elizabeth Mutua" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">Dr. Elizabeth Mutua</h4>
+<p class="text-gray-600 text-sm">Board Chairperson</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm">Professor of Agricultural Economics at University of Nairobi with extensive experience in rural development policy.</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20African%20man%20in%20his%20late%2040s%20wearing%20a%20suit%20and%20tie.%20He%20has%20a%20serious%2C%20professional%20expression%20and%20appears%20experienced%20and%20trustworthy.%20The%20background%20is%20neutral%20and%20corporate.%20The%20lighting%20is%20even%20and%20professional%2C%20creating%20a%20formal%20portrait%20suitable%20for%20a%20financial%20director%20or%20treasurer.&width=80&height=80&seq=board2&orientation=squarish" alt="James Kimani" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">James Kimani</h4>
+<p class="text-gray-600 text-sm">Treasurer</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm">Financial consultant with 20+ years experience in nonprofit financial management and strategic planning.</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20African%20woman%20with%20a%20warm%2C%20approachable%20smile.%20She%20is%20wearing%20professional%20attire%20with%20a%20colorful%20scarf%20or%20accessory.%20Her%20expression%20conveys%20compassion%20and%20experience.%20The%20background%20is%20simple%20and%20non-distracting.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20portrait%20suitable%20for%20a%20healthcare%20professional%20or%20board%20secretary.&width=80&height=80&seq=board3&orientation=squarish" alt="Dr. Mercy Adhiambo" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">Dr. Mercy Adhiambo</h4>
+<p class="text-gray-600 text-sm">Secretary</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm">Pediatrician and public health specialist focused on child nutrition and community health programs.</p>
+</div>
+</div>
+</div>
+<!-- Team Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg p-6 shadow-sm text-center">
+<div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-team-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">28</h4>
+<p class="text-gray-600">Full-time Staff</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm text-center">
+<div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">120+</h4>
+<p class="text-gray-600">Volunteers</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm text-center">
+<div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-global-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">6</h4>
+<p class="text-gray-600">Countries Represented</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm text-center">
+<div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-graduation-cap-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">85%</h4>
+<p class="text-gray-600">Advanced Degrees</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-award-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Achievements</h2>
+<p class="text-gray-600">Milestones and impact we've created through our programs and initiatives.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+<!-- Impact Numbers -->
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-6">Impact by Numbers</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-user-heart-line text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">1,200+</h4>
+<p class="text-gray-600">Children Supported</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-community-line text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">42</h4>
+<p class="text-gray-600">Communities Served</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-plant-line text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">85</h4>
+<p class="text-gray-600">Agricultural Projects</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-school-line text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="text-3xl font-bold text-gray-800 mb-2">24</h4>
+<p class="text-gray-600">School Partnerships</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Awards & Recognition -->
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-6">Awards & Recognition</h3>
+<div class="space-y-6">
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-award-fill text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Sustainable Development Impact Award</h4>
+<p class="text-gray-500 text-sm mb-2">2023 • African Development Foundation</p>
+<p class="text-gray-600">Recognized for innovative approaches to addressing child vulnerability through sustainable agriculture.</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-award-fill text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Excellence in Community Empowerment</h4>
+<p class="text-gray-500 text-sm mb-2">2022 • National NGO Council of Kenya</p>
+<p class="text-gray-600">Awarded for outstanding community-based programs that foster self-reliance and sustainable development.</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-award-fill text-primary ri-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Innovation in Agricultural Education</h4>
+<p class="text-gray-500 text-sm mb-2">2021 • Global Food Security Initiative</p>
+<p class="text-gray-600">Recognized for developing effective agricultural education programs for children and youth.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Achievements -->
+<div class="mt-12">
+<h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Key Program Achievements</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-seedling-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Agricultural Innovation</h4>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Developed 12 drought-resistant crop varieties suitable for local conditions</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Implemented water-efficient irrigation systems in 28 community gardens</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Trained 850+ children in sustainable farming techniques</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Increased crop yields by an average of 65% across partner communities</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-book-open-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Educational Impact</h4>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Improved school attendance rates by 42% in partner communities</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Provided scholarships to 175 vulnerable children</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Established 18 school gardens that serve as outdoor classrooms</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Developed agricultural curriculum adopted by 24 schools</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-heart-pulse-line text-primary ri-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Community Wellbeing</h4>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Reduced child malnutrition by 38% in target communities</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Created sustainable income sources for 320+ families</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Established 15 community seed banks preserving local biodiversity</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Improved access to clean water for 8,500+ community members</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-links-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Partners & Supporters</h2>
+<p class="text-gray-600">We collaborate with organizations that share our vision for sustainable development and child wellbeing.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+<!-- Partner 1 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-global-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Global Food Initiative</h4>
+</div>
+<!-- Partner 2 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-plant-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Green Earth Foundation</h4>
+</div>
+<!-- Partner 3 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-book-open-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Education For All</h4>
+</div>
+<!-- Partner 4 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-heart-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Children First Network</h4>
+</div>
+<!-- Partner 5 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-government-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Ministry of Agriculture</h4>
+</div>
+<!-- Partner 6 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-bank-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">African Development Bank</h4>
+</div>
+<!-- Partner 7 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-building-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Nairobi University</h4>
+</div>
+<!-- Partner 8 -->
+<div class="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-drop-line text-gray-700 ri-3x"></i>
+</div>
+<h4 class="font-semibold text-gray-800 text-center">Clean Water Initiative</h4>
+</div>
+</div>
+<!-- Testimonials -->
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">What Our Partners Say</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20African%20woman%20in%20her%20mid-40s%20with%20a%20warm%2C%20professional%20smile.%20She%20is%20wearing%20business%20attire%20and%20appears%20confident%20and%20approachable.%20The%20background%20is%20neutral%20and%20clean.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20professional%20portrait%20suitable%20for%20a%20director%20or%20executive.&width=80&height=80&seq=test1&orientation=squarish" alt="Dr. Ngozi Okonjo" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">Dr. Ngozi Okonjo</h4>
+<p class="text-gray-500 text-sm">Director, Global Food Initiative</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The Busula Agri Foundation has been an exceptional partner in our efforts to promote food security. Their innovative approach to combining agricultural education with child development has created a model that delivers sustainable results."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20African%20man%20in%20his%20late%2030s%20with%20a%20confident%2C%20friendly%20expression.%20He%20is%20wearing%20business%20casual%20attire%20with%20a%20collared%20shirt.%20The%20background%20is%20neutral%20and%20professional.%20The%20lighting%20is%20even%20and%20flattering%2C%20creating%20a%20professional%20portrait%20suitable%20for%20an%20education%20director.&width=80&height=80&seq=test2&orientation=squarish" alt="Michael Odhiambo" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">Michael Odhiambo</h4>
+<p class="text-gray-500 text-sm">Education Director, Nairobi County</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The foundation's school garden program has transformed how our students learn about agriculture and nutrition. We've seen improved attendance, better academic performance, and healthier eating habits among participating students."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20African%20woman%20wearing%20traditional%20colorful%20clothing%20and%20a%20headwrap.%20She%20has%20a%20dignified%2C%20warm%20expression%20and%20appears%20wise%20and%20respected.%20The%20background%20is%20simple%20and%20non-distracting.%20The%20lighting%20is%20natural%20and%20flattering%2C%20creating%20a%20portrait%20suitable%20for%20a%20community%20leader.&width=80&height=80&seq=test3&orientation=squarish" alt="Sarah Mwangi" class="w-16 h-16 rounded-full object-cover object-top">
+<div>
+<h4 class="font-semibold text-gray-800">Sarah Mwangi</h4>
+<p class="text-gray-500 text-sm">Community Leader, Kakamega</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"Before the Busula Agri Foundation came to our village, many families struggled to provide enough food for their children. Now, our community garden feeds hundreds, and many parents have started their own small farming businesses."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Future Vision Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-road-map-line text-primary ri-xl"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Vision for the Future</h2>
+<p class="text-gray-600 mb-6">As we look ahead, the Busula Agri Foundation is committed to expanding our impact and reaching more vulnerable children across Africa. Our strategic plan for the next five years focuses on:</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-plant-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Expanding Agricultural Innovation Centers</h4>
+<p class="text-gray-600">Establishing 10 new agricultural training centers to serve as hubs for innovation and knowledge sharing.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-school-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Strengthening Educational Programs</h4>
+<p class="text-gray-600">Partnering with 50 additional schools to integrate agricultural education into their curriculum.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-global-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Geographic Expansion</h4>
+<p class="text-gray-600">Extending our programs to three additional countries in East Africa to support more vulnerable children.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+<i class="ri-research-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Research & Development</h4>
+<p class="text-gray-600">Investing in research to develop climate-resilient agricultural methods suitable for changing environmental conditions.</p>
+</div>
+</li>
+</ul>
+<div class="mt-8">
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium inline-flex items-center gap-2 whitespace-nowrap">
+<span>Support Our Vision</span>
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+</div>
+<div>
+<img src="https://readdy.ai/api/search-image?query=A%20visionary%20scene%20showing%20the%20future%20of%20sustainable%20agriculture%20in%20Africa.%20The%20image%20depicts%20modern%20farming%20techniques%20integrated%20with%20traditional%20methods%2C%20including%20solar-powered%20irrigation%20systems%2C%20community%20seed%20banks%2C%20and%20educational%20facilities.%20Children%20and%20adults%20are%20working%20together%20in%20a%20thriving%20agricultural%20landscape%20with%20diverse%20crops.%20The%20scene%20conveys%20hope%2C%20innovation%2C%20and%20community%20empowerment%20with%20modern%20yet%20appropriate%20technology%20visible%20throughout.%20The%20lighting%20is%20bright%20and%20optimistic.&width=600&height=500&seq=vision&orientation=landscape" alt="Our Vision for the Future" class="w-full h-auto rounded-lg shadow-lg">
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-primary/10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Join Us in Making a Difference</h2>
+<p class="text-gray-600 text-lg mb-8">Whether through donations, volunteering, or partnerships, your support helps us continue our mission of transforming lives through sustainable agriculture and education.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/f3aafed1-cced-46de-b913-5f34e2fe024a" data-readdy="true" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Donate Now</a>
+<a href="#" class="bg-white hover:bg-gray-100 text-primary border border-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Become a Volunteer</a>
+<a href="#" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Partner With Us</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-white">Busula Agri</span>
+</a>
+<p class="text-gray-400 mb-4">Dedicated to improving the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex gap-4">
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Volunteer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sponsor a Child</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corporate Partnerships</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fundraise for Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-3">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400">123 Mombasa Road, Nairobi, Kenya</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-mail-line text-primary mt-1"></i>
+<span class="text-gray-400">info@busulaagri.org</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-phone-line text-primary mt-1"></i>
+<span class="text-gray-400">+254 712 345 678</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-time-line text-primary mt-1"></i>
+<span class="text-gray-400">Mon-Fri: 9am-5pm EAT</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Busula Agri Foundation. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+});
+</script>
+</body>
+</html>

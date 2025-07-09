@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Busula Agri Foundation</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+border-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 50%;
+position: relative;
+}
+.custom-radio:checked {
+border-color: #4CAF50;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 4px;
+top: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #4CAF50;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #4CAF50;
+}
+input:checked + .switch-slider:before {
+transform: translateX(24px);
+}
+.accordion-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+max-height: 500px;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- WhatsApp Popup -->
+<div id="whatsapp-popup" class="whatsapp-popup fixed bottom-4 left-4 bg-white rounded-lg shadow-xl z-50 max-w-sm hidden">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-whatsapp-line text-white ri-xl"></i>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Join Our WhatsApp Community!</h3>
+<p class="text-gray-600 mb-4">Stay connected and get instant updates about our projects and events.</p>
+<div class="flex items-center gap-3">
+<a href="https://wa.me/c/17808632750" target="_blank" class="bg-[#25D366] hover:bg-[#20BD5A] text-white px-4 py-2 rounded-full flex items-center gap-2 !rounded-button whitespace-nowrap">
+<i class="ri-whatsapp-line"></i>
+<span>Join Now</span>
+</a>
+<button id="close-whatsapp-popup" class="text-gray-500 hover:text-gray-700">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="#" class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-white ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-primary">Busula Agri Foundation</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a href="#" class="text-primary font-medium" onclick="scrollToTop(event)">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+<a href="#donate" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('donate', event)">Donate</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/4bfb6fec-d329-4c62-a6bd-b269c28696d4" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Volunteer</a>
+<a href="#contact" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('contact', event)">Contact</a>
+</nav>
+<a href="#donate" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button whitespace-nowrap" onclick="scrollToSection('donate', event)">Donate Now</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+<a href="/" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="#donate" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100" onclick="window.location.href='#donate'">Donate</a>
+<a href="#volunteer" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100" onclick="window.location.href='#volunteer'">Volunteer</a>
+<a href="#contact" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100" onclick="window.location.href='#contact'">Contact</a>
+<a href="#donate" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button text-center whitespace-nowrap" onclick="window.location.href='#donate'">Donate Now</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section w-full relative overflow-hidden">
+<div id="hero-carousel" class="relative w-full h-[600px]">
+<div class="absolute inset-0 flex transition-transform duration-500">
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20heartwarming%20scene%20of%20diverse%20children%20in%20rural%20Africa%20working%20together%20in%20a%20lush%20green%20agricultural%20field%2C%20with%20adults%20teaching%20them%20farming%20techniques.%20The%20image%20shows%20a%20community%20garden%20with%20various%20vegetables%20growing.%20The%20children%20have%20bright%20smiles%20and%20are%20engaged%20in%20planting%20activities.%20The%20background%20shows%20a%20beautiful%20African%20landscape%20with%20scattered%20trees%20and%20a%20clear%20blue%20sky.%20The%20lighting%20is%20warm%20and%20golden%2C%20creating%20a%20hopeful%20atmosphere.&width=1920&height=800&seq=hero1&orientation=landscape" class="w-full h-full object-cover" alt="Community Garden">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20powerful%20image%20of%20African%20children%20in%20a%20modern%20classroom%20setting%2C%20engaged%20in%20interactive%20learning%20with%20tablets%20and%20computers.%20The%20room%20is%20bright%20and%20well-equipped%2C%20showing%20the%20foundations%20commitment%20to%20digital%20education.%20Students%20are%20wearing%20neat%20uniforms%20and%20appear%20focused%20and%20excited%20about%20learning.%20Natural%20light%20streams%20through%20large%20windows.&width=1920&height=800&seq=hero2&orientation=landscape" class="w-full h-full object-cover" alt="Digital Education">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20vibrant%20scene%20of%20a%20community%20harvest%20celebration%20in%20rural%20Africa.%20Families%20and%20children%20are%20gathered%20around%20tables%20displaying%20fresh%20produce%20from%20their%20sustainable%20farming%20projects.%20The%20atmosphere%20is%20festive%20with%20traditional%20decorations.%20People%20are%20sharing%20meals%20and%20knowledge%2C%20demonstrating%20the%20success%20of%20agricultural%20education%20programs.&width=1920&height=800&seq=hero3&orientation=landscape" class="w-full h-full object-cover" alt="Community Harvest">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=An%20inspiring%20image%20of%20young%20African%20students%20participating%20in%20a%20science%20experiment%2C%20wearing%20lab%20coats%20and%20safety%20goggles.%20The%20laboratory%20is%20well-equipped%20with%20modern%20scientific%20instruments.%20Students%20are%20working%20in%20groups%2C%20showing%20enthusiasm%20for%20hands-on%20learning.%20The%20scene%20demonstrates%20the%20foundations%20focus%20on%20STEM%20education.&width=1920&height=800&seq=hero4&orientation=landscape" class="w-full h-full object-cover" alt="Science Education">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20touching%20moment%20of%20healthcare%20outreach%20in%20a%20rural%20African%20community.%20Medical%20professionals%20are%20providing%20check-ups%20to%20children%20while%20educating%20parents%20about%20health%20and%20nutrition.%20The%20mobile%20clinic%20is%20clean%20and%20organized.%20The%20interaction%20between%20healthcare%20workers%20and%20families%20is%20warm%20and%20caring.&width=1920&height=800&seq=hero5&orientation=landscape" class="w-full h-full object-cover" alt="Healthcare Outreach">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=An%20energetic%20scene%20of%20children%20participating%20in%20sports%20and%20physical%20education%20activities.%20The%20outdoor%20sports%20field%20is%20well-maintained%20with%20proper%20equipment.%20Children%20are%20playing%20team%20sports%2C%20showing%20the%20importance%20of%20physical%20wellness%20and%20teamwork.%20Coaches%20are%20providing%20guidance%20and%20encouragement.&width=1920&height=800&seq=hero6&orientation=landscape" class="w-full h-full object-cover" alt="Sports Program">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20creative%20arts%20session%20showing%20African%20children%20expressing%20themselves%20through%20painting%20and%20music.%20The%20art%20room%20is%20colorful%20with%20student%20artwork%20displayed%20on%20walls.%20Children%20are%20using%20various%20art%20supplies%20and%20musical%20instruments.%20The%20environment%20encourages%20creative%20expression%20and%20cultural%20celebration.&width=1920&height=800&seq=hero7&orientation=landscape" class="w-full h-full object-cover" alt="Arts Program">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=An%20environmental%20education%20program%20in%20action%2C%20with%20children%20learning%20about%20conservation%20and%20sustainable%20practices.%20The%20outdoor%20classroom%20shows%20students%20planting%20trees%20and%20studying%20local%20ecosystems.%20Educational%20materials%20about%20environmental%20protection%20are%20visible.%20The%20setting%20demonstrates%20commitment%20to%20environmental%20stewardship.&width=1920&height=800&seq=hero8&orientation=landscape" class="w-full h-full object-cover" alt="Environmental Education">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="flex-shrink-0 w-full h-full relative">
+<img src="https://readdy.ai/api/search-image?query=A%20powerful%20image%20of%20community%20empowerment%20through%20vocational%20training.%20Young%20adults%20are%20learning%20practical%20skills%20in%20a%20workshop%20setting.%20The%20facility%20is%20equipped%20with%20modern%20tools%20and%20machinery.%20Instructors%20are%20providing%20hands-on%20guidance%2C%20showing%20the%20foundations%20commitment%20to%20sustainable%20skill%20development.&width=1920&height=800&seq=hero9&orientation=landscape" class="w-full h-full object-cover" alt="Vocational Training">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+</div>
+<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot active" data-index="0"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="1"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="2"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="3"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="4"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="5"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="6"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="7"></button>
+<button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors hero-dot" data-index="8"></button>
+</div>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-20" id="prev-slide">
+<i class="ri-arrow-left-s-line ri-lg"></i>
+</button>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-20" id="next-slide">
+<i class="ri-arrow-right-s-line ri-lg"></i>
+</button>
+</div>
+<div class="absolute inset-0 flex items-center z-10">
+<div class="container mx-auto px-4">
+<div class="max-w-2xl text-white">
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Make a Difference Today</h1>
+<p class="text-xl italic font-medium mb-4">"A goal is a dream with a deadline"</p>
+<p class="text-lg md:text-xl mb-8">Join us in our mission to improve the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#donate" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Donate Now</a>
+<a href="#volunteer" class="bg-white hover:bg-gray-100 text-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap volunteer-apply-btn" data-program="Volunteer">Become a Volunteer</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Statistics -->
+<section class="bg-white py-12">
+<div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center p-6 rounded shadow-sm border border-gray-100">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-4xl font-bold text-gray-800 mb-2">1,200+</h3>
+<p class="text-gray-600">Children Supported</p>
+</div>
+<div class="text-center p-6 rounded shadow-sm border border-gray-100">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-community-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-4xl font-bold text-gray-800 mb-2">42</h3>
+<p class="text-gray-600">Communities Served</p>
+</div>
+<div class="text-center p-6 rounded shadow-sm border border-gray-100">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-4xl font-bold text-gray-800 mb-2">85</h3>
+<p class="text-gray-600">Agricultural Projects</p>
+</div>
+</div>
+</section>
+<!-- Donation Options -->
+<section id="donate" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Make a Donation</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Your contribution helps us provide food, shelter, education, and mentorship to vulnerable children across communities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<!-- One-time Donation -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary/10 p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">One-time Donation</h3>
+<p class="text-gray-600 text-sm">Provide immediate support to our ongoing projects.</p>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="10">$10</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="25">$25</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="50">$50</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="100">$100</button>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2">Custom Amount</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+<input type="text" class="w-full pl-8 pr-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Enter amount">
+</div>
+</div>
+<button id="donate-now-btn" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Donate Now</button>
+<!-- Payment Modal -->
+<div id="payment-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+<div class="container mx-auto px-4 py-8 h-full flex items-center justify-center">
+<div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+<div class="p-6 border-b border-gray-100">
+<div class="flex justify-between items-center">
+<h3 class="text-2xl font-semibold text-gray-800">Complete Your Donation</h3>
+<button id="close-payment-modal" class="text-gray-400 hover:text-gray-600">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-2">Donation Summary</h4>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-2">
+<span class="text-gray-600">Amount:</span>
+<span id="donation-amount" class="text-primary font-semibold">$0.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-600">Type:</span>
+<span id="donation-type" class="text-gray-800">One-time Donation</span>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Payment Method</h4>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<button class="payment-method-btn border border-gray-200 p-4 rounded-lg flex items-center justify-center gap-2 hover:border-primary hover:bg-primary/5" data-method="card">
+<i class="ri-bank-card-line text-gray-600"></i>
+<span>Credit Card</span>
+</button>
+<button class="payment-method-btn border border-gray-200 p-4 rounded-lg flex items-center justify-center gap-2 hover:border-primary hover:bg-primary/5" data-method="paypal">
+<i class="ri-paypal-line text-gray-600"></i>
+<span>PayPal</span>
+</button>
+</div>
+</div>
+<form id="payment-form">
+<div id="card-payment-section">
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="card-number">Card Number</label>
+<input type="text" id="card-number" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="1234 5678 9012 3456">
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="expiry">Expiration Date</label>
+<input type="text" id="expiry" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="MM/YY">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="cvv">CVV</label>
+<input type="text" id="cvv" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="123">
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Billing Information</h4>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="first-name">First Name</label>
+<input type="text" id="first-name" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="last-name">Last Name</label>
+<input type="text" id="last-name" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="address">Address</label>
+<input type="text" id="address" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="city">City</label>
+<input type="text" id="city" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="postal-code">Postal Code</label>
+<input type="text" id="postal-code" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 mb-4">
+<input type="checkbox" id="terms" class="custom-checkbox">
+<label for="terms" class="text-gray-600 text-sm">I agree to the terms and conditions and authorize this donation.</label>
+</div>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Complete Donation</button>
+</form>
+<div class="mt-6">
+<div class="flex items-center justify-center gap-4 mb-4">
+<div class="flex items-center gap-2">
+<i class="ri-shield-check-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">Secure Payment</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-lock-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">SSL Encrypted</span>
+</div>
+</div>
+<div class="flex justify-center gap-4">
+<i class="ri-visa-fill ri-2x text-gray-600"></i>
+<i class="ri-mastercard-fill ri-2x text-gray-600"></i>
+<i class="ri-paypal-fill ri-2x text-gray-600"></i>
+<i class="ri-apple-fill ri-2x text-gray-600"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Monthly Donation -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary/10 p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Monthly Donation</h3>
+<p class="text-gray-600 text-sm">Provide sustainable support through recurring donations.</p>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="10">$10/mo</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="25">$25/mo</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="50">$50/mo</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="100">$100/mo</button>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2">Custom Monthly Amount</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+<input type="text" class="w-full pl-8 pr-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Enter amount">
+</div>
+</div>
+<button id="subscribe-monthly-btn" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Subscribe Monthly</button>
+<!-- Subscription Payment Modal -->
+<div id="subscription-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+<div class="container mx-auto px-4 py-8 h-full flex items-center justify-center">
+<div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+<div class="p-6 border-b border-gray-100">
+<div class="flex justify-between items-center">
+<h3 class="text-2xl font-semibold text-gray-800">Set Up Monthly Donation</h3>
+<button id="close-subscription-modal" class="text-gray-400 hover:text-gray-600">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-2">Subscription Details</h4>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-2">
+<span class="text-gray-600">Monthly Amount:</span>
+<span id="subscription-amount" class="text-primary font-semibold">$0.00/month</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-gray-600">First Payment:</span>
+<span id="first-payment-date" class="text-gray-800">July 8, 2025</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-600">Next Payment:</span>
+<span id="next-payment-date" class="text-gray-800">August 8, 2025</span>
+</div>
+</div>
+</div>
+<form id="subscription-form">
+<div id="subscription-payment-section">
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-card-number">Card Number</label>
+<input type="text" id="subscription-card-number" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="1234 5678 9012 3456">
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-expiry">Expiration Date</label>
+<input type="text" id="subscription-expiry" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="MM/YY">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-cvv">CVV</label>
+<input type="text" id="subscription-cvv" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="123">
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Billing Information</h4>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-first-name">First Name</label>
+<input type="text" id="subscription-first-name" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-last-name">Last Name</label>
+<input type="text" id="subscription-last-name" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-email">Email</label>
+<input type="email" id="subscription-email" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-address">Address</label>
+<input type="text" id="subscription-address" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-city">City</label>
+<input type="text" id="subscription-city" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscription-postal-code">Postal Code</label>
+<input type="text" id="subscription-postal-code" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 mb-4">
+<input type="checkbox" id="subscription-terms" class="custom-checkbox">
+<label for="subscription-terms" class="text-gray-600 text-sm">I understand this is a recurring monthly donation that will be automatically charged to my card each month. I can cancel at any time by contacting support.</label>
+</div>
+</div>
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+<h5 class="text-blue-800 font-medium mb-2">Important Information</h5>
+<ul class="text-blue-700 text-sm space-y-1">
+<li>• Your first payment will be processed today</li>
+<li>• Subsequent payments will be processed on the 8th of each month</li>
+<li>• You can cancel your subscription at any time by emailing support@busulaagri.org</li>
+<li>• A confirmation email will be sent after each payment</li>
+</ul>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Confirm Monthly Donation</button>
+</form>
+<div class="mt-6">
+<div class="flex items-center justify-center gap-4 mb-4">
+<div class="flex items-center gap-2">
+<i class="ri-shield-check-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">Secure Payment</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-lock-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">SSL Encrypted</span>
+</div>
+</div>
+<div class="flex justify-center gap-4">
+<i class="ri-visa-fill ri-2x text-gray-600"></i>
+<i class="ri-mastercard-fill ri-2x text-gray-600"></i>
+<i class="ri-paypal-fill ri-2x text-gray-600"></i>
+<i class="ri-apple-fill ri-2x text-gray-600"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sponsor a Child -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary/10 p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Sponsor a Child</h3>
+<p class="text-gray-600 text-sm">Make a direct impact on a child's life through sponsorship.</p>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 gap-3 mb-4">
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="50">$50/mo - Basic Needs</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="100">$100/mo - Education</button>
+<button class="donation-amount border border-gray-200 hover:border-primary hover:bg-primary/5 py-2 !rounded-button whitespace-nowrap" data-amount="150">$150/mo - Comprehensive</button>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2">Custom Sponsorship</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+<input type="text" class="w-full pl-8 pr-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Enter amount">
+</div>
+</div>
+<button id="sponsor-now-btn" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Sponsor Now</button>
+<!-- Sponsorship Modal -->
+<div id="sponsorship-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+<div class="container mx-auto px-4 py-8 h-full flex items-center justify-center">
+<div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+<div class="p-6 border-b border-gray-100">
+<div class="flex justify-between items-center">
+<h3 class="text-2xl font-semibold text-gray-800">Child Sponsorship Program</h3>
+<button id="close-sponsorship-modal" class="text-gray-400 hover:text-gray-600">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-8">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Choose a Child to Sponsor</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Child Profile 1 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20young%20African%20girl%20around%208%20years%20old%20with%20a%20bright%2C%20hopeful%20smile.%20She%20is%20wearing%20a%20simple%20school%20uniform%20and%20has%20neat%20braided%20hair.%20The%20photo%20is%20well-lit%20with%20a%20natural%2C%20non-staged%20feel%2C%20showing%20both%20vulnerability%20and%20resilience%20in%20her%20expression.%20The%20background%20is%20simple%20and%20non-distracting.&width=400&height=300&seq=child1&orientation=landscape" alt="Sarah" class="w-full h-48 object-cover">
+<div class="p-4">
+<h5 class="font-medium text-gray-800 mb-2">Sarah, 8 years old</h5>
+<p class="text-gray-600 text-sm mb-4">Sarah dreams of becoming a teacher. She loves mathematics and helping younger children with their studies. Your sponsorship will help provide her education and healthcare.</p>
+<button class="select-child-btn w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap" data-child="Sarah">Select Sarah</button>
+</div>
+</div>
+<!-- Child Profile 2 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20young%20African%20boy%20around%2010%20years%20old%20with%20an%20engaging%20smile%20and%20bright%20eyes.%20He%20is%20wearing%20casual%20clothes%20and%20appears%20confident%20yet%20humble.%20The%20photo%20captures%20his%20personality%20naturally%2C%20showing%20his%20potential%20and%20aspirations.%20The%20background%20is%20simple%20and%20clean.&width=400&height=300&seq=child2&orientation=landscape" alt="David" class="w-full h-48 object-cover">
+<div class="p-4">
+<h5 class="font-medium text-gray-800 mb-2">David, 10 years old</h5>
+<p class="text-gray-600 text-sm mb-4">David is passionate about science and technology. He excels in his studies despite challenges. Your support will help him pursue his dream of becoming an engineer.</p>
+<button class="select-child-btn w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap" data-child="David">Select David</button>
+</div>
+</div>
+</div>
+</div>
+<div id="sponsorship-form" class="hidden">
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-2">Your Selected Child: <span id="selected-child" class="text-primary"></span></h4>
+<p class="text-gray-600">Choose your sponsorship level and complete the form below to begin your sponsorship journey.</p>
+</div>
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Sponsorship Levels</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<button class="sponsorship-level border border-gray-200 p-4 rounded-lg text-left hover:border-primary hover:bg-primary/5" data-amount="50">
+<div class="font-medium text-gray-800 mb-1">Basic Support</div>
+<div class="text-primary font-medium mb-2">$50/month</div>
+<div class="text-sm text-gray-600">Provides essential education and basic healthcare</div>
+</button>
+<button class="sponsorship-level border border-gray-200 p-4 rounded-lg text-left hover:border-primary hover:bg-primary/5" data-amount="100">
+<div class="font-medium text-gray-800 mb-1">Comprehensive Care</div>
+<div class="text-primary font-medium mb-2">$100/month</div>
+<div class="text-sm text-gray-600">Includes education, healthcare, nutrition, and clothing</div>
+</button>
+<button class="sponsorship-level border border-gray-200 p-4 rounded-lg text-left hover:border-primary hover:bg-primary/5" data-amount="150">
+<div class="font-medium text-gray-800 mb-1">Full Support</div>
+<div class="text-primary font-medium mb-2">$150/month</div>
+<div class="text-sm text-gray-600">Complete support including family assistance and special programs</div>
+</button>
+</div>
+</div>
+<form id="sponsorship-payment-form">
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-4">Payment Information</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-first-name">First Name *</label>
+<input type="text" id="sponsor-first-name" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-last-name">Last Name *</label>
+<input type="text" id="sponsor-last-name" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-email">Email *</label>
+<input type="email" id="sponsor-email" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-card">Card Number *</label>
+<input type="text" id="sponsor-card" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="1234 5678 9012 3456">
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-expiry">Expiration Date *</label>
+<input type="text" id="sponsor-expiry" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="MM/YY">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="sponsor-cvv">CVV *</label>
+<input type="text" id="sponsor-cvv" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="123">
+</div>
+</div>
+</div>
+<div class="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+<h5 class="text-blue-800 font-medium mb-2">Your Sponsorship Impact</h5>
+<ul class="text-blue-700 text-sm space-y-2">
+<li>• Regular updates on your sponsored child's progress</li>
+<li>• Photos and letters from your sponsored child</li>
+<li>• Annual detailed report on the child's development</li>
+<li>• Opportunity to send messages and small gifts</li>
+<li>• Tax-deductible donation receipt</li>
+</ul>
+</div>
+<div class="flex items-start gap-2 mb-6">
+<input type="checkbox" id="sponsorship-terms" required class="custom-checkbox mt-1">
+<label for="sponsorship-terms" class="text-gray-600 text-sm">I understand this is a recurring monthly sponsorship commitment. I can modify or cancel my sponsorship at any time by contacting support.</label>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Confirm Sponsorship</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<div class="flex flex-wrap justify-center gap-6 mb-4">
+<div class="flex items-center gap-2">
+<i class="ri-shield-check-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">Secure Payment</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-lock-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">SSL Encrypted</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-file-list-3-line text-gray-600"></i>
+<span class="text-gray-600 text-sm">Tax Deductible</span>
+</div>
+</div>
+<div class="flex justify-center gap-4">
+<i class="ri-visa-fill ri-2x text-gray-600"></i>
+<i class="ri-mastercard-fill ri-2x text-gray-600"></i>
+<i class="ri-paypal-fill ri-2x text-gray-600"></i>
+<i class="ri-apple-fill ri-2x text-gray-600"></i>
+</div>
+</div>
+</div>
+</section>
+<!-- Volunteer Opportunities -->
+<section id="volunteer" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Volunteer Opportunities</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Join our team of dedicated volunteers and make a direct impact on the lives of children in need.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Agricultural Programs -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=African%20volunteers%20working%20in%20a%20community%20garden%2C%20teaching%20sustainable%20farming%20techniques%20to%20local%20children.%20The%20scene%20shows%20people%20of%20various%20ages%20tending%20to%20vegetable%20plots%2C%20with%20farming%20tools%20visible.%20The%20garden%20is%20lush%20and%20productive%20with%20rows%20of%20different%20crops.%20The%20atmosphere%20is%20collaborative%20and%20educational%2C%20with%20clear%20blue%20skies%20overhead.&width=600&height=400&seq=vol1&orientation=landscape" alt="Agricultural Programs" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Agricultural Programs</h3>
+<div class="flex items-center gap-2 text-gray-600 mb-2">
+<i class="ri-time-line"></i>
+<span>10-20 hours/week</span>
+</div>
+<div class="flex items-center gap-2 text-gray-600 mb-4">
+<i class="ri-tools-line"></i>
+<span>Basic farming knowledge</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap volunteer-apply-btn" data-program="Agricultural Programs">Apply Now</button>
+</div>
+</div>
+<!-- Volunteer Application Modal -->
+<div id="volunteer-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+<div class="container mx-auto px-4 py-8 h-full flex items-center justify-center">
+<div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+<div class="p-6 border-b border-gray-100">
+<div class="flex justify-between items-center">
+<h3 class="text-2xl font-semibold text-gray-800">Volunteer Application</h3>
+<button id="close-volunteer-modal" class="text-gray-400 hover:text-gray-600">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h4 class="text-lg font-medium text-gray-800 mb-2">Why We Need Volunteers</h4>
+<p class="text-gray-600 mb-4">At Busula Agri Foundation, volunteers are the backbone of our mission to transform lives through sustainable agriculture and education. Your time and skills help us:</p>
+<ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+<li>Reach more children and communities with our programs</li>
+<li>Provide personalized mentorship and support</li>
+<li>Share valuable skills and knowledge</li>
+<li>Create lasting impact through sustainable initiatives</li>
+<li>Build stronger community connections</li>
+</ul>
+</div>
+<form id="volunteer-form" data-readdy-form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="first-name">First Name *</label>
+<input type="text" id="first-name" name="first_name" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 text-sm font-medium mb-2" for="last-name">Last Name *</label>
+<input type="text" id="last-name" name="last_name" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email Address *</label>
+<input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="phone">Phone Number *</label>
+<input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="program">Program Interest *</label>
+<select id="program" name="program" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+<option value="">Select a program</option>
+<option value="agricultural">Agricultural Programs</option>
+<option value="mentorship">Child Mentorship</option>
+<option value="education">Educational Support</option>
+<option value="events">Event Organization</option>
+</select>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="availability">Availability *</label>
+<select id="availability" name="availability" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+<option value="">Select availability</option>
+<option value="weekdays">Weekdays</option>
+<option value="weekends">Weekends</option>
+<option value="both">Both Weekdays & Weekends</option>
+<option value="flexible">Flexible</option>
+</select>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="experience">Relevant Experience</label>
+<textarea id="experience" name="experience" rows="3" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="motivation">Why do you want to volunteer with us? *</label>
+<textarea id="motivation" name="motivation" required rows="3" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
+</div>
+<div class="flex items-start gap-2 mb-6">
+<input type="checkbox" id="terms" name="terms" required class="custom-checkbox mt-1">
+<label for="terms" class="text-gray-600 text-sm">I agree to the volunteer terms and conditions and understand that this application does not guarantee placement. *</label>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 !rounded-button whitespace-nowrap">Submit Application</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Child Mentorship -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20warm%2C%20compassionate%20scene%20of%20an%20adult%20mentor%20sitting%20with%20African%20children%20in%20a%20classroom%20setting.%20The%20mentor%20is%20helping%20children%20with%20books%20and%20educational%20materials.%20The%20children%20appear%20engaged%20and%20happy%2C%20with%20bright%20expressions%20showing%20their%20enthusiasm%20for%20learning.%20The%20classroom%20is%20simple%20but%20colorful%20with%20educational%20posters%20on%20walls.%20Natural%20light%20streams%20through%20windows%20creating%20a%20hopeful%20atmosphere.&width=600&height=400&seq=vol2&orientation=landscape" alt="Child Mentorship" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Child Mentorship</h3>
+<div class="flex items-center gap-2 text-gray-600 mb-2">
+<i class="ri-time-line"></i>
+<span>5-10 hours/week</span>
+</div>
+<div class="flex items-center gap-2 text-gray-600 mb-4">
+<i class="ri-tools-line"></i>
+<span>Communication skills</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap volunteer-apply-btn" data-program="Child Mentorship">Apply Now</button>
+</div>
+</div>
+<!-- Educational Support -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20dedicated%20volunteer%20teacher%20instructing%20a%20group%20of%20eager%20African%20children%20in%20an%20outdoor%20classroom%20setting.%20The%20children%20are%20sitting%20in%20a%20semi-circle%2C%20actively%20participating%20with%20raised%20hands.%20The%20teacher%20is%20using%20visual%20aids%20and%20a%20portable%20blackboard.%20Educational%20materials%20and%20books%20are%20visible.%20The%20setting%20is%20under%20a%20large%20tree%20providing%20shade%2C%20with%20a%20rural%20school%20building%20visible%20in%20the%20background.%20The%20scene%20conveys%20knowledge%20sharing%20and%20educational%20empowerment.&width=600&height=400&seq=vol3&orientation=landscape" alt="Educational Support" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Educational Support</h3>
+<div class="flex items-center gap-2 text-gray-600 mb-2">
+<i class="ri-time-line"></i>
+<span>8-15 hours/week</span>
+</div>
+<div class="flex items-center gap-2 text-gray-600 mb-4">
+<i class="ri-tools-line"></i>
+<span>Teaching experience</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap volunteer-apply-btn" data-program="Educational Support">Apply Now</button>
+</div>
+</div>
+<!-- Event Organization -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20vibrant%20community%20event%20in%20rural%20Africa%20with%20volunteers%20organizing%20activities%20for%20children.%20The%20scene%20shows%20colorful%20decorations%2C%20information%20booths%2C%20and%20various%20stations%20for%20different%20activities.%20Volunteers%20wearing%20matching%20t-shirts%20are%20coordinating%20games%20and%20educational%20demonstrations.%20Children%20and%20parents%20are%20participating%20enthusiastically.%20The%20event%20takes%20place%20in%20an%20open%20community%20space%20with%20tents%20and%20banners%20displaying%20the%20foundations%20name.%20The%20atmosphere%20is%20festive%20and%20community-oriented.&width=600&height=400&seq=vol4&orientation=landscape" alt="Event Organization" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Event Organization</h3>
+<div class="flex items-center gap-2 text-gray-600 mb-2">
+<i class="ri-time-line"></i>
+<span>Variable (project-based)</span>
+</div>
+<div class="flex items-center gap-2 text-gray-600 mb-4">
+<i class="ri-tools-line"></i>
+<span>Planning & coordination</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap volunteer-apply-btn" data-program="Event Organization">Apply Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Showcase -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Our Impact</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">See how your support transforms lives and communities through our various programs.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Success Stories -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="p-6 bg-primary/10">
+<h3 class="text-xl font-semibold text-gray-800">Success Stories</h3>
+</div>
+<div class="relative overflow-hidden" id="success-stories-carousel">
+<div class="flex transition-transform duration-500" id="carousel-inner">
+<!-- Story 1 -->
+<div class="w-full flex-shrink-0 p-6">
+<div class="flex items-start gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20smiling%20African%20teenage%20girl%20in%20school%20uniform%2C%20looking%20confident%20and%20happy.%20She%20has%20a%20natural%2C%20genuine%20expression%20with%20bright%20eyes%20full%20of%20hope.%20The%20background%20is%20simple%20and%20neutral%2C%20focusing%20on%20her%20face.%20The%20lighting%20is%20soft%20and%20flattering%2C%20highlighting%20her%20features%20in%20a%20respectful%20way.&width=100&height=100&seq=story1&orientation=squarish" alt="Amara" class="w-16 h-16 rounded-full object-cover">
+<div>
+<h4 class="font-semibold text-gray-800">Amara's Journey</h4>
+<p class="text-gray-500 text-sm">Education Program</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"Before joining the Busula Agri Foundation, I had limited access to education. Now, I'm excelling in school and have dreams of becoming a doctor to help my community. The mentorship and support have changed my life completely."</p>
+<div class="flex items-center gap-2">
+<span class="text-sm text-gray-500">Amara Okafor, 16</span>
+<span class="text-sm text-gray-400">•</span>
+<span class="text-sm text-gray-500">Joined 2022</span>
+</div>
+</div>
+<!-- Story 2 -->
+<div class="w-full flex-shrink-0 p-6">
+<div class="flex items-start gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20confident%20young%20African%20boy%20around%2012%20years%20old%2C%20wearing%20casual%20clothes%20and%20a%20bright%20smile.%20He%20has%20a%20determined%20look%20in%20his%20eyes%20that%20shows%20resilience%20and%20hope.%20The%20background%20is%20neutral%20and%20non-distracting.%20The%20lighting%20is%20natural%20and%20flattering%2C%20creating%20a%20genuine%20and%20respectful%20portrait.&width=100&height=100&seq=story2&orientation=squarish" alt="Kofi" class="w-16 h-16 rounded-full object-cover">
+<div>
+<h4 class="font-semibold text-gray-800">Kofi's Transformation</h4>
+<p class="text-gray-500 text-sm">Agricultural Training</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"The agricultural skills I learned through the foundation have allowed me to help my family grow food and even start a small business selling vegetables. I'm now teaching other children in my village these techniques too."</p>
+<div class="flex items-center gap-2">
+<span class="text-sm text-gray-500">Kofi Mensah, 14</span>
+<span class="text-sm text-gray-400">•</span>
+<span class="text-sm text-gray-500">Joined 2021</span>
+</div>
+</div>
+<!-- Story 3 -->
+<div class="w-full flex-shrink-0 p-6">
+<div class="flex items-start gap-4 mb-4">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20young%20African%20mother%20in%20her%2030s%20with%20a%20gentle%20smile%2C%20holding%20a%20small%20child.%20She%20appears%20confident%20and%20hopeful.%20She%20is%20wearing%20simple%20but%20neat%20clothing.%20The%20background%20is%20neutral%20and%20non-distracting.%20The%20lighting%20is%20soft%20and%20natural%2C%20creating%20a%20warm%20and%20authentic%20portrait%20that%20respects%20her%20dignity.&width=100&height=100&seq=story3&orientation=squarish" alt="Fatima" class="w-16 h-16 rounded-full object-cover">
+<div>
+<h4 class="font-semibold text-gray-800">Fatima's Family</h4>
+<p class="text-gray-500 text-sm">Community Support</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"As a single mother, I struggled to provide for my three children. The foundation's community garden project gave us access to nutritious food and a source of income. My children are now healthy and attending school regularly."</p>
+<div class="flex items-center gap-2">
+<span class="text-sm text-gray-500">Fatima Ibrahim, 34</span>
+<span class="text-sm text-gray-400">•</span>
+<span class="text-sm text-gray-500">Joined 2020</span>
+</div>
+</div>
+</div>
+<!-- Navigation Dots -->
+<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+<button class="w-2 h-2 rounded-full bg-primary carousel-dot active" data-index="0"></button>
+<button class="w-2 h-2 rounded-full bg-gray-300 carousel-dot" data-index="1"></button>
+<button class="w-2 h-2 rounded-full bg-gray-300 carousel-dot" data-index="2"></button>
+</div>
+</div>
+</div>
+<!-- Impact Metrics -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="p-6 bg-primary/10">
+<h3 class="text-xl font-semibold text-gray-800">Impact Metrics</h3>
+</div>
+<div class="p-6">
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Children in Education</span>
+<span class="text-primary font-medium">85%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Community Food Security</span>
+<span class="text-primary font-medium">72%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Healthcare Access</span>
+<span class="text-primary font-medium">68%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Sustainable Farming Adoption</span>
+<span class="text-primary font-medium">91%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 91%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Photo Gallery -->
+<div class="mt-12">
+<h3 class="text-xl font-semibold text-gray-800 text-center mb-6">Photo Gallery</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<img src="https://readdy.ai/api/search-image?query=African%20children%20harvesting%20vegetables%20in%20a%20community%20garden%2C%20with%20adult%20volunteers%20helping%20them.%20The%20children%20are%20smiling%20and%20engaged%20in%20the%20activity.%20The%20garden%20is%20lush%20and%20productive%20with%20various%20vegetables.%20The%20scene%20is%20bright%20and%20sunny%2C%20showing%20a%20successful%20agricultural%20project.&width=300&height=200&seq=gallery1&orientation=landscape" alt="Community Garden" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=African%20children%20in%20a%20classroom%20setting%2C%20engaged%20in%20learning%20with%20books%20and%20educational%20materials.%20The%20classroom%20is%20simple%20but%20functional%20with%20educational%20posters%20on%20walls.%20Children%20are%20wearing%20school%20uniforms%20and%20appear%20focused%20and%20happy.%20A%20teacher%20or%20volunteer%20is%20visible%20helping%20students.%20Natural%20light%20illuminates%20the%20scene.&width=300&height=200&seq=gallery2&orientation=landscape" alt="Education Program" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20community%20gathering%20in%20rural%20Africa%20with%20adults%20and%20children%20participating%20in%20a%20workshop%20about%20sustainable%20farming.%20People%20are%20seated%20in%20a%20circle%20under%20a%20large%20tree.%20A%20facilitator%20is%20demonstrating%20farming%20techniques%20with%20visual%20aids.%20Participants%20are%20engaged%20and%20taking%20notes.%20The%20atmosphere%20is%20collaborative%20and%20educational.&width=300&height=200&seq=gallery3&orientation=landscape" alt="Community Workshop" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Children%20receiving%20meals%20at%20a%20community%20center%20in%20rural%20Africa.%20The%20children%20are%20sitting%20at%20tables%20enjoying%20nutritious%20food.%20Volunteers%20are%20serving%20the%20meals%20with%20care.%20The%20setting%20is%20clean%20and%20organized.%20Children%20appear%20happy%20and%20well-nourished.%20The%20scene%20demonstrates%20the%20foundations%20nutrition%20program%20in%20action.&width=300&height=200&seq=gallery4&orientation=landscape" alt="Nutrition Program" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20group%20of%20young%20African%20children%20learning%20about%20plant%20care%20in%20a%20greenhouse%20setting.%20They%20are%20examining%20seedlings%20and%20small%20plants%20while%20a%20volunteer%20demonstrates%20proper%20planting%20techniques.%20The%20greenhouse%20is%20filled%20with%20various%20plants%20and%20gardening%20tools.%20Natural%20light%20filters%20through%20creating%20a%20warm%20educational%20atmosphere.&width=300&height=200&seq=gallery5&orientation=landscape" alt="Greenhouse Learning" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=African%20women%20participating%20in%20a%20skill%20development%20workshop%2C%20learning%20sustainable%20farming%20techniques.%20They%20are%20working%20with%20modern%20agricultural%20tools%20and%20equipment.%20The%20setting%20shows%20a%20well-organized%20training%20facility%20with%20demonstration%20areas.%20Participants%20are%20engaged%20and%20taking%20notes%20while%20instructors%20provide%20hands-on%20guidance.&width=300&height=200&seq=gallery6&orientation=landscape" alt="Women's Empowerment" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20community%20celebration%20event%20in%20rural%20Africa%20showcasing%20agricultural%20achievements.%20Displays%20of%20harvested%20crops%20and%20agricultural%20products%20are%20arranged%20on%20tables.%20Community%20members%20of%20all%20ages%20are%20interacting%20and%20celebrating.%20The%20atmosphere%20is%20festive%20with%20traditional%20decorations%20and%20music%20performances.&width=300&height=200&seq=gallery7&orientation=landscape" alt="Community Celebration" class="w-full h-48 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Young%20African%20students%20working%20in%20a%20computer%20lab%20with%20modern%20equipment.%20The%20room%20is%20well-lit%20and%20organized%20with%20rows%20of%20computers.%20Students%20are%20engaged%20in%20educational%20software%20while%20volunteers%20provide%20guidance.%20The%20scene%20demonstrates%20the%20foundations%20commitment%20to%20digital%20literacy.&width=300&height=200&seq=gallery8&orientation=landscape" alt="Digital Education" class="w-full h-48 object-cover rounded-lg">
+</div>
+<div class="text-center mt-8">
+<button id="see-more-photos" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button inline-flex items-center gap-2 whitespace-nowrap">
+<span>See More Photos</span>
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+<!-- Photo Gallery Modal -->
+<div id="gallery-modal" class="fixed inset-0 bg-black/80 z-50 hidden">
+<div class="container mx-auto px-4 py-8 h-full flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-semibold text-white">Photo Gallery</h3>
+<button id="close-gallery" class="text-white hover:text-gray-300">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto flex-grow">
+<img src="https://readdy.ai/api/search-image?query=A%20touching%20portrait%20of%20a%20young%20African%20child%20with%20physical%20disabilities%2C%20sitting%20in%20a%20wheelchair%20with%20a%20bright%20smile.%20The%20child%20is%20surrounded%20by%20supportive%20caregivers%20in%20a%20clean%2C%20well-lit%20medical%20facility.%20The%20image%20captures%20both%20challenge%20and%20hope%2C%20showing%20dignity%20and%20resilience.&width=400&height=300&seq=gallery9&orientation=landscape" alt="Special Needs Support" class="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+<img src="https://readdy.ai/api/search-image?query=A%20group%20of%20African%20children%20with%20various%20disabilities%20participating%20in%20an%20inclusive%20education%20program.%20Some%20children%20use%20mobility%20aids%20while%20others%20show%20signs%20of%20visual%20or%20hearing%20impairments.%20The%20setting%20is%20a%20bright%2C%20accessible%20classroom%20with%20supportive%20teachers%20and%20adaptive%20equipment.&width=400&height=300&seq=gallery10&orientation=landscape" alt="Inclusive Education" class="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+<img src="https://readdy.ai/api/search-image?query=A%20heartwarming%20scene%20of%20underprivileged%20African%20children%20receiving%20medical%20check-ups%20in%20a%20rural%20clinic.%20The%20children%20show%20signs%20of%20malnutrition%20but%20have%20hopeful%20expressions.%20Healthcare%20workers%20are%20providing%20care%20with%20genuine%20compassion.%20The%20setting%20is%20simple%20but%20clean%20and%20organized.&width=400&height=300&seq=gallery11&orientation=landscape" alt="Healthcare Support" class="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+<img src="https://readdy.ai/api/search-image?query=A%20powerful%20image%20of%20young%20African%20children%20in%20a%20rural%20village%20showing%20signs%20of%20poverty%20but%20displaying%20resilient%20spirits.%20Some%20children%20have%20visible%20disabilities%20while%20others%20show%20signs%20of%20malnutrition.%20Despite%20challenges%2C%20their%20faces%20show%20hope%20and%20determination.%20The%20background%20shows%20their%20modest%20living%20conditions.&width=400&height=300&seq=gallery12&orientation=landscape" alt="Community Support" class="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+<img src="https://readdy.ai/api/search-image?query=Children%20enjoying%20a%20nutritious%20meal%20in%20a%20clean%2C%20organized%20community%20dining%20area.%20The%20scene%20shows%20happy%20faces%20and%20healthy%20food%20portions.%20Volunteers%20are%20serving%20meals%2C%20and%20the%20environment%20demonstrates%20proper%20food%20safety%20and%20hygiene%20practices.&width=400&height=300&seq=gallery11&orientation=landscape" alt="Nutrition Program" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20medical%20outreach%20program%20in%20action%2C%20with%20healthcare%20volunteers%20providing%20basic%20health%20checks%20to%20children.%20The%20setting%20shows%20organized%20medical%20equipment%20and%20caring%20interactions%20between%20healthcare%20workers%20and%20children.%20The%20environment%20is%20clean%20and%20professional.&width=400&height=300&seq=gallery12&orientation=landscape" alt="Healthcare Outreach" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Young%20students%20engaged%20in%20a%20computer%20literacy%20class%20with%20modern%20equipment.%20The%20classroom%20shows%20rows%20of%20computers%20with%20children%20learning%20digital%20skills.%20Volunteers%20are%20providing%20guidance%2C%20and%20the%20atmosphere%20is%20focused%20on%20technology%20education.&width=400&height=300&seq=gallery13&orientation=landscape" alt="Digital Education" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20community%20celebration%20event%20showcasing%20cultural%20performances%20by%20children.%20The%20scene%20shows%20traditional%20costumes%2C%20music%2C%20and%20dance%20performances.%20The%20audience%20includes%20community%20members%20and%20volunteers%2C%20creating%20a%20festive%20atmosphere.&width=400&height=300&seq=gallery14&orientation=landscape" alt="Cultural Celebration" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Women%20participating%20in%20a%20skill%20development%20workshop%20focused%20on%20sustainable%20farming%20techniques.%20The%20setting%20shows%20practical%20demonstrations%20of%20agricultural%20methods.%20Participants%20are%20engaged%20in%20hands-on%20learning%20with%20modern%20farming%20tools.&width=400&height=300&seq=gallery15&orientation=landscape" alt="Women's Training" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Children%20working%20in%20a%20community%20garden%2C%20harvesting%20vegetables%20they%20have%20grown.%20The%20garden%20shows%20various%20types%20of%20produce%20ready%20for%20harvest.%20The%20scene%20demonstrates%20successful%20agricultural%20education%20and%20sustainable%20food%20production.&width=400&height=300&seq=gallery16&orientation=landscape" alt="Garden Harvest" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20water%20access%20project%20showing%20newly%20installed%20clean%20water%20facilities.%20Children%20and%20community%20members%20are%20using%20the%20water%20source.%20The%20scene%20demonstrates%20improved%20infrastructure%20and%20access%20to%20clean%20water.&width=400&height=300&seq=gallery17&orientation=landscape" alt="Water Access" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=An%20environmental%20education%20session%20with%20children%20learning%20about%20conservation.%20The%20outdoor%20setting%20shows%20interactive%20learning%20about%20nature%20and%20environmental%20protection.%20Educational%20materials%20and%20natural%20specimens%20are%20visible.&width=400&height=300&seq=gallery18&orientation=landscape" alt="Environmental Education" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20sports%20and%20recreation%20program%20in%20action%20with%20children%20playing%20organized%20games.%20The%20scene%20shows%20physical%20activities%20and%20team%20sports.%20Equipment%20and%20proper%20supervision%20are%20visible%2C%20promoting%20healthy%20lifestyle.&width=400&height=300&seq=gallery19&orientation=landscape" alt="Sports Program" class="w-full h-64 object-cover rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=An%20art%20therapy%20session%20with%20children%20expressing%20creativity%20through%20painting%20and%20drawing.%20The%20setting%20shows%20art%20supplies%20and%20childrens%20artwork%20displayed.%20The%20atmosphere%20is%20creative%20and%20therapeutic.&width=400&height=300&seq=gallery20&orientation=landscape" alt="Art Therapy" class="w-full h-64 object-cover rounded-lg">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How Your Help Matters -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">How Your Help Matters</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Your contributions directly impact the lives of children and communities we serve. Here's how your support is allocated.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Donation Usage Chart -->
+<div>
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Donation Allocation</h3>
+<div class="bg-white rounded-lg shadow-md p-6 h-80" id="donation-chart"></div>
+</div>
+<!-- Current Projects -->
+<div>
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Current Projects</h3>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">New School Building</span>
+<span class="text-primary font-medium">$28,500 / $35,000</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 81%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Clean Water Initiative</span>
+<span class="text-primary font-medium">$12,750 / $20,000</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Agricultural Training Center</span>
+<span class="text-primary font-medium">$42,000 / $50,000</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Healthcare Outreach</span>
+<span class="text-primary font-medium">$15,300 / $30,000</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 51%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Get Started Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">How to Get Involved</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Follow these simple steps to start making a difference today.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Donation Process -->
+<div>
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Making a Donation</h3>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">1</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Choose Your Donation Type</h4>
+<p class="text-gray-600">Select from one-time donation, monthly giving, or child sponsorship based on your preference.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">2</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Enter Donation Amount</h4>
+<p class="text-gray-600">Choose a preset amount or enter a custom donation that fits your budget.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">3</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Provide Your Information</h4>
+<p class="text-gray-600">Fill in your contact and payment details through our secure payment system.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">4</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Receive Confirmation</h4>
+<p class="text-gray-600">Get a receipt and updates about how your donation is making an impact.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Volunteer Process -->
+<div>
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Becoming a Volunteer</h3>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">1</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Browse Volunteer Opportunities</h4>
+<p class="text-gray-600">Explore our different volunteer programs and find one that matches your skills and interests.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">2</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Submit Application</h4>
+<p class="text-gray-600">Complete our volunteer application form with your background, availability, and interests.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">3</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Attend Orientation</h4>
+<p class="text-gray-600">Participate in our volunteer orientation to learn about our programs and expectations.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-primary font-semibold">4</span>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Begin Your Journey</h4>
+<p class="text-gray-600">Start making an impact by joining our team of dedicated volunteers in the field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<div class="mt-12">
+<h3 class="text-xl font-semibold text-gray-800 text-center mb-6">Frequently Asked Questions</h3>
+<div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+<div class="border-b border-gray-100">
+<button class="w-full px-6 py-4 text-left focus:outline-none accordion-button" data-target="faq1">
+<div class="flex justify-between items-center">
+<span class="font-medium text-gray-800">How is my donation used?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</div>
+</button>
+<div class="px-6 pb-4 accordion-content" id="faq1">
+<p class="text-gray-600">Your donation directly supports our programs for vulnerable children. Approximately 85% of all donations go directly to program costs including food, education, healthcare, and agricultural initiatives. The remaining 15% covers essential administrative costs and fundraising to sustain our work.</p>
+</div>
+</div>
+<div class="border-b border-gray-100">
+<button class="w-full px-6 py-4 text-left focus:outline-none accordion-button" data-target="faq2">
+<div class="flex justify-between items-center">
+<span class="font-medium text-gray-800">Can I sponsor a specific child?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</div>
+</button>
+<div class="px-6 pb-4 accordion-content" id="faq2">
+<p class="text-gray-600">Yes, our child sponsorship program allows you to support a specific child. You'll receive updates about their progress, photos, and even have opportunities to exchange letters. Your monthly contribution provides for their education, nutrition, healthcare, and other essential needs.</p>
+</div>
+</div>
+<div class="border-b border-gray-100">
+<button class="w-full px-6 py-4 text-left focus:outline-none accordion-button" data-target="faq3">
+<div class="flex justify-between items-center">
+<span class="font-medium text-gray-800">What skills do I need to volunteer?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</div>
+</button>
+<div class="px-6 pb-4 accordion-content" id="faq3">
+<p class="text-gray-600">We welcome volunteers with diverse skills and backgrounds. While specific roles may require certain expertise (like teaching or agricultural knowledge), many positions only require compassion, reliability, and willingness to learn. We provide training for most volunteer positions to ensure you're prepared for your role.</p>
+</div>
+</div>
+<div>
+<button class="w-full px-6 py-4 text-left focus:outline-none accordion-button" data-target="faq4">
+<div class="flex justify-between items-center">
+<span class="font-medium text-gray-800">Is my donation tax-deductible?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</div>
+</button>
+<div class="px-6 pb-4 accordion-content" id="faq4">
+<p class="text-gray-600">Yes, the Busula Agri Foundation is a registered non-profit organization, and all donations are tax-deductible to the extent allowed by law. You will receive an official receipt for your donation that can be used for tax purposes. Please consult with your tax advisor for specific information regarding your situation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Support -->
+<section id="contact" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Contact Information -->
+<div class="lg:col-span-1">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+<p class="text-gray-600 mb-8">Have questions or need assistance? Our dedicated support team is here to help you.</p>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Email Us</h4>
+<p class="text-gray-600">support@busulaagri.org</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Call Us</h4>
+<p class="text-gray-600">+1 780 863 2750</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-8">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800 mb-1">Visit Us</h4>
+<p class="text-gray-600">1003 East Park View Estates NW<br>32 Street 116A Avenue<br>Edmonton, Alberta, T5W4R1</p>
+</div>
+</div>
+<div class="flex gap-4">
+<a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<!-- Contact Form & Newsletter -->
+<div class="lg:col-span-2">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Contact Form -->
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Send a Message</h3>
+<form data-readdy-form>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="name">Your Name</label>
+<input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="John Doe">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email Address</label>
+<input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="john@example.com">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subject">Subject</label>
+<input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="How can we help?">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="message">Message</label>
+<textarea id="message" name="message" rows="4" maxlength="500" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Your message here..."></textarea>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<!-- Newsletter & Live Chat -->
+<div>
+<div class="bg-white rounded-lg shadow-md p-6 mb-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Subscribe to Updates</h3>
+<p class="text-gray-600 mb-4">Stay informed about our projects, success stories, and upcoming events.</p>
+<form data-readdy-form>
+<div class="mb-4">
+<label class="block text-gray-700 text-sm font-medium mb-2" for="subscribe-email">Email Address</label>
+<input type="email" id="subscribe-email" name="email" required class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="your@email.com">
+</div>
+<div class="mb-4 flex items-start gap-2">
+<input type="checkbox" id="consent" name="consent" required class="custom-checkbox mt-1">
+<label for="consent" class="text-gray-600 text-sm">I agree to receive email updates from Busula Agri Foundation. You can unsubscribe at any time.</label>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-2 !rounded-button whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Live Chat Support</h3>
+<p class="text-gray-600 mb-4">Need immediate assistance? Chat with our support team now.</p>
+<button id="start-chat-btn" class="w-full bg-white border border-primary text-primary hover:bg-primary/5 py-2 !rounded-button flex items-center justify-center gap-2 whitespace-nowrap">
+<i class="ri-chat-1-line"></i>
+<span>Start Live Chat</span>
+</button>
+<!-- Chat Dialog -->
+<div id="chat-dialog" class="hidden fixed bottom-4 right-4 w-80 bg-white rounded-lg shadow-xl z-50 flex flex-col" style="height: 400px; resize: both; overflow: hidden;">
+<div id="chat-header" class="p-4 bg-primary text-white rounded-t-lg cursor-move flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="font-['Pacifico']">Busula Agri</span>
+</div>
+<button id="close-chat" class="text-white hover:text-gray-200">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+<div class="flex items-start gap-2">
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-customer-service-2-line text-primary"></i>
+</div>
+<div class="bg-gray-100 rounded-lg p-3 max-w-[80%]">
+<p class="text-sm text-gray-800">Hello! Welcome to Busula Agri Foundation. How can I help you today?</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-gray-100">
+<form id="chat-form" data-readdy-form class="flex gap-2">
+<input type="text" id="chat-input" name="message" class="flex-1 px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Type your message...">
+<button type="submit" class="bg-primary text-white p-2 !rounded-button hover:bg-primary/90">
+<i class="ri-send-plane-fill"></i>
+</button>
+</form>
+</div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-sm text-gray-500">Available Monday-Friday, 9am-5pm EAT</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-white">Busula Agri</span>
+</a>
+<p class="text-gray-400 mb-4">Dedicated to improving the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex gap-4">
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Volunteer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sponsor a Child</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corporate Partnerships</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fundraise for Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-3">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400">1003 East Park View Estates NW<br>32 Street 116A Avenue<br>Edmonton, Alberta, T5W4R1</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-mail-line text-primary mt-1"></i>
+<span class="text-gray-400">info@busulaagri.org</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-phone-line text-primary mt-1"></i>
+<span class="text-gray-400">+1 780 863 2750</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-time-line text-primary mt-1"></i>
+<span class="text-gray-400">Mon-Fri: 9am-5pm EAT</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Busula Agri Foundation. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+<div class="mt-4 flex justify-center gap-4">
+<i class="ri-visa-fill ri-lg text-gray-400"></i>
+<i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+<i class="ri-paypal-fill ri-lg text-gray-400"></i>
+<i class="ri-apple-fill ri-lg text-gray-400"></i>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+.whatsapp-popup {
+animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+from {
+transform: translateY(100%);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+</style>
+<script id="whatsapp-popup-script">
+document.addEventListener('DOMContentLoaded', function() {
+const popup = document.getElementById('whatsapp-popup');
+const closeButton = document.getElementById('close-whatsapp-popup');
+// Show popup after 5 seconds
+setTimeout(() => {
+popup.classList.remove('hidden');
+}, 5000);
+// Close popup
+closeButton.addEventListener('click', () => {
+popup.classList.add('hidden');
+});
+// Store popup state in localStorage
+if (!localStorage.getItem('whatsappPopupShown')) {
+setTimeout(() => {
+popup.classList.remove('hidden');
+localStorage.setItem('whatsappPopupShown', 'true');
+}, 5000);
+}
+});
+</script>
+<script id="hero-carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const carousel = document.querySelector('#hero-carousel .flex');
+const dots = document.querySelectorAll('.hero-dot');
+const prevBtn = document.getElementById('prev-slide');
+const nextBtn = document.getElementById('next-slide');
+let currentIndex = 0;
+let autoSlideInterval;
+function updateCarousel() {
+const slideWidth = carousel.parentElement.clientWidth;
+carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+dots.forEach((dot, index) => {
+if (index === currentIndex) {
+dot.classList.add('bg-white');
+dot.classList.remove('bg-white/50');
+} else {
+dot.classList.remove('bg-white');
+dot.classList.add('bg-white/50');
+}
+});
+}
+function nextSlide() {
+currentIndex = (currentIndex + 1) % dots.length;
+updateCarousel();
+}
+function prevSlide() {
+currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+updateCarousel();
+}
+function startAutoSlide() {
+autoSlideInterval = setInterval(nextSlide, 5000);
+}
+function stopAutoSlide() {
+clearInterval(autoSlideInterval);
+}
+dots.forEach((dot, index) => {
+dot.addEventListener('click', function() {
+currentIndex = index;
+updateCarousel();
+stopAutoSlide();
+startAutoSlide();
+});
+});
+prevBtn.addEventListener('click', function() {
+prevSlide();
+stopAutoSlide();
+startAutoSlide();
+});
+nextBtn.addEventListener('click', function() {
+nextSlide();
+stopAutoSlide();
+startAutoSlide();
+});
+carousel.parentElement.addEventListener('mouseenter', stopAutoSlide);
+carousel.parentElement.addEventListener('mouseleave', startAutoSlide);
+window.addEventListener('resize', updateCarousel);
+startAutoSlide();
+});
+</script>
+<script id="scroll-highlight-script">
+function scrollToTop(event) {
+event.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function scrollToSection(sectionId, event) {
+event.preventDefault();
+const section = document.getElementById(sectionId);
+if (section) {
+section.scrollIntoView({ behavior: 'smooth' });
+// Add highlight effect
+section.classList.add('highlight-section');
+setTimeout(() => {
+section.classList.remove('highlight-section');
+}, 2000);
+}
+}
+</script>
+<style>
+@keyframes highlightSection {
+0% { background-color: transparent; }
+50% { background-color: rgba(76, 175, 80, 0.1); }
+100% { background-color: transparent; }
+}
+.highlight-section {
+animation: highlightSection 2s ease-in-out;
+}
+</style>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+
+// Close mobile menu after clicking a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+const icon = mobileMenuButton.querySelector('i');
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+});
+});
+});
+</script>
+<script id="sponsorship-modal-script">
+document.addEventListener('DOMContentLoaded', function() {
+const sponsorNowBtn = document.getElementById('sponsor-now-btn');
+const sponsorshipModal = document.getElementById('sponsorship-modal');
+const closeSponsorshipModal = document.getElementById('close-sponsorship-modal');
+const selectChildBtns = document.querySelectorAll('.select-child-btn');
+const sponsorshipForm = document.getElementById('sponsorship-form');
+const selectedChildSpan = document.getElementById('selected-child');
+const sponsorshipLevels = document.querySelectorAll('.sponsorship-level');
+const sponsorshipPaymentForm = document.getElementById('sponsorship-payment-form');
+let selectedLevel = null;
+sponsorNowBtn.addEventListener('click', function() {
+sponsorshipModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closeSponsorshipModal.addEventListener('click', function() {
+sponsorshipModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+sponsorshipForm.classList.add('hidden');
+});
+sponsorshipModal.addEventListener('click', function(e) {
+if (e.target === sponsorshipModal) {
+sponsorshipModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+sponsorshipForm.classList.add('hidden');
+}
+});
+selectChildBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+const childName = this.getAttribute('data-child');
+selectedChildSpan.textContent = childName;
+sponsorshipForm.classList.remove('hidden');
+sponsorshipForm.scrollIntoView({ behavior: 'smooth' });
+});
+});
+sponsorshipLevels.forEach(level => {
+level.addEventListener('click', function() {
+sponsorshipLevels.forEach(l => {
+l.classList.remove('border-primary', 'bg-primary/5');
+});
+this.classList.add('border-primary', 'bg-primary/5');
+selectedLevel = this.getAttribute('data-amount');
+});
+});
+const sponsorCard = document.getElementById('sponsor-card');
+sponsorCard.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+value = value.replace(/(.{4})/g, '$1 ').trim();
+e.target.value = value.substring(0, 19);
+});
+const sponsorExpiry = document.getElementById('sponsor-expiry');
+sponsorExpiry.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+if (value.length >= 2) {
+value = value.substring(0, 2) + '/' + value.substring(2);
+}
+e.target.value = value.substring(0, 5);
+});
+const sponsorCvv = document.getElementById('sponsor-cvv');
+sponsorCvv.addEventListener('input', function(e) {
+e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+});
+sponsorshipPaymentForm.addEventListener('submit', function(e) {
+e.preventDefault();
+if (!selectedLevel) {
+const warningMsg = document.createElement('div');
+warningMsg.className = 'fixed top-4 right-4 bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded';
+warningMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+<span>Please select a sponsorship level to continue.</span>
+</div>
+`;
+document.body.appendChild(warningMsg);
+setTimeout(() => warningMsg.remove(), 3000);
+return;
+}
+const processingMsg = document.createElement('div');
+processingMsg.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+processingMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Setting up your child sponsorship...</span>
+</div>
+`;
+document.body.appendChild(processingMsg);
+setTimeout(() => {
+processingMsg.remove();
+const successMsg = document.createElement('div');
+successMsg.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Thank you for sponsoring a child! Check your email for more information.</span>
+</div>
+`;
+document.body.appendChild(successMsg);
+sponsorshipModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+sponsorshipPaymentForm.reset();
+sponsorshipForm.classList.add('hidden');
+selectedLevel = null;
+sponsorshipLevels.forEach(l => l.classList.remove('border-primary', 'bg-primary/5'));
+setTimeout(() => {
+successMsg.remove();
+}, 5000);
+}, 2000);
+});
+});
+</script>
+<script id="donation-buttons-script">
+document.addEventListener('DOMContentLoaded', function() {
+let selectedAmount = 0;
+let selectedType = 'One-time Donation';
+let selectedMonthlyAmount = 0;
+const donationButtons = document.querySelectorAll('.donation-amount');
+const donateNowBtn = document.getElementById('donate-now-btn');
+const paymentModal = document.getElementById('payment-modal');
+const closePaymentModal = document.getElementById('close-payment-modal');
+const paymentMethodBtns = document.querySelectorAll('.payment-method-btn');
+const cardPaymentSection = document.getElementById('card-payment-section');
+const paymentForm = document.getElementById('payment-form');
+const subscribeMonthlyBtn = document.getElementById('subscribe-monthly-btn');
+const subscriptionModal = document.getElementById('subscription-modal');
+const closeSubscriptionModal = document.getElementById('close-subscription-modal');
+const subscriptionForm = document.getElementById('subscription-form');
+donationButtons.forEach(button => {
+button.addEventListener('click', function() {
+const container = this.closest('div');
+const buttons = container.querySelectorAll('.donation-amount');
+if (container.closest('.bg-white').querySelector('h3').textContent === 'Monthly Donation') {
+selectedMonthlyAmount = this.dataset.amount;
+}
+buttons.forEach(btn => {
+btn.classList.remove('bg-primary/10', 'border-primary', 'text-primary');
+btn.classList.add('border-gray-200');
+});
+this.classList.add('bg-primary/10', 'border-primary', 'text-primary');
+this.classList.remove('border-gray-200');
+const customField = container.parentElement.querySelector('input[type="text"]');
+if (customField) {
+customField.value = this.dataset.amount;
+}
+selectedAmount = this.dataset.amount;
+selectedType = container.closest('.bg-white').querySelector('h3').textContent;
+});
+});
+donateNowBtn.addEventListener('click', function() {
+const amountDisplay = document.getElementById('donation-amount');
+const typeDisplay = document.getElementById('donation-type');
+amountDisplay.textContent = selectedAmount ? `$${selectedAmount}` : '$0.00';
+typeDisplay.textContent = selectedType;
+paymentModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closePaymentModal.addEventListener('click', function() {
+paymentModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+paymentModal.addEventListener('click', function(e) {
+if (e.target === paymentModal) {
+paymentModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+}
+});
+paymentMethodBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+paymentMethodBtns.forEach(b => {
+b.classList.remove('border-primary', 'bg-primary/5');
+});
+this.classList.add('border-primary', 'bg-primary/5');
+if (this.dataset.method === 'card') {
+cardPaymentSection.classList.remove('hidden');
+} else {
+cardPaymentSection.classList.add('hidden');
+}
+});
+});
+// Card number formatting
+const cardNumber = document.getElementById('card-number');
+cardNumber.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+value = value.replace(/(.{4})/g, '$1 ').trim();
+e.target.value = value.substring(0, 19);
+});
+// Expiry date formatting
+const expiry = document.getElementById('expiry');
+expiry.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+if (value.length >= 2) {
+value = value.substring(0, 2) + '/' + value.substring(2);
+}
+e.target.value = value.substring(0, 5);
+});
+// CVV formatting
+const cvv = document.getElementById('cvv');
+cvv.addEventListener('input', function(e) {
+e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+});
+subscribeMonthlyBtn.addEventListener('click', function() {
+const amountDisplay = document.getElementById('subscription-amount');
+amountDisplay.textContent = selectedMonthlyAmount ? `$${selectedMonthlyAmount}/month` : '$0.00/month';
+const today = new Date();
+const nextMonth = new Date(today);
+nextMonth.setMonth(today.getMonth() + 1);
+document.getElementById('first-payment-date').textContent = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+document.getElementById('next-payment-date').textContent = nextMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+subscriptionModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closeSubscriptionModal.addEventListener('click', function() {
+subscriptionModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+subscriptionModal.addEventListener('click', function(e) {
+if (e.target === subscriptionModal) {
+subscriptionModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+}
+});
+// Card number formatting for subscription
+const subscriptionCardNumber = document.getElementById('subscription-card-number');
+subscriptionCardNumber.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+value = value.replace(/(.{4})/g, '$1 ').trim();
+e.target.value = value.substring(0, 19);
+});
+// Expiry date formatting for subscription
+const subscriptionExpiry = document.getElementById('subscription-expiry');
+subscriptionExpiry.addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+if (value.length >= 2) {
+value = value.substring(0, 2) + '/' + value.substring(2);
+}
+e.target.value = value.substring(0, 5);
+});
+// CVV formatting for subscription
+const subscriptionCvv = document.getElementById('subscription-cvv');
+subscriptionCvv.addEventListener('input', function(e) {
+e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+});
+subscriptionForm.addEventListener('submit', function(e) {
+e.preventDefault();
+if (!document.getElementById('subscription-terms').checked) {
+const warningMsg = document.createElement('div');
+warningMsg.className = 'fixed top-4 right-4 bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded';
+warningMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+<span>Please accept the subscription terms to continue.</span>
+</div>
+`;
+document.body.appendChild(warningMsg);
+setTimeout(() => warningMsg.remove(), 3000);
+return;
+}
+const processingMsg = document.createElement('div');
+processingMsg.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+processingMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Setting up your monthly donation...</span>
+</div>
+`;
+document.body.appendChild(processingMsg);
+setTimeout(() => {
+processingMsg.remove();
+const successMsg = document.createElement('div');
+successMsg.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Your monthly donation has been set up! Check your email for confirmation.</span>
+</div>
+`;
+document.body.appendChild(successMsg);
+subscriptionModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+subscriptionForm.reset();
+setTimeout(() => {
+successMsg.remove();
+}, 5000);
+}, 2000);
+});
+paymentForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Show processing message
+const processingMsg = document.createElement('div');
+processingMsg.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+processingMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Processing your donation...</span>
+</div>
+`;
+document.body.appendChild(processingMsg);
+// Simulate processing
+setTimeout(() => {
+processingMsg.remove();
+// Show success message
+const successMsg = document.createElement('div');
+successMsg.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMsg.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Thank you for your donation! A confirmation email has been sent.</span>
+</div>
+`;
+document.body.appendChild(successMsg);
+// Close modal and reset form
+paymentModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+paymentForm.reset();
+// Remove success message after 5 seconds
+setTimeout(() => {
+successMsg.remove();
+}, 5000);
+}, 2000);
+});
+});
+</script>
+<script id="carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const carousel = document.getElementById('carousel-inner');
+const dots = document.querySelectorAll('.carousel-dot');
+let currentIndex = 0;
+function updateCarousel() {
+const slideWidth = carousel.clientWidth;
+carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+dots.forEach((dot, index) => {
+if (index === currentIndex) {
+dot.classList.add('bg-primary');
+dot.classList.remove('bg-gray-300');
+} else {
+dot.classList.remove('bg-primary');
+dot.classList.add('bg-gray-300');
+}
+});
+}
+dots.forEach((dot, index) => {
+dot.addEventListener('click', function() {
+currentIndex = index;
+updateCarousel();
+});
+});
+// Auto slide every 5 seconds
+setInterval(function() {
+currentIndex = (currentIndex + 1) % dots.length;
+updateCarousel();
+}, 5000);
+});
+</script>
+<script id="accordion-script">
+document.addEventListener('DOMContentLoaded', function() {
+const accordionButtons = document.querySelectorAll('.accordion-button');
+accordionButtons.forEach(button => {
+button.addEventListener('click', function() {
+const targetId = this.getAttribute('data-target');
+const content = document.getElementById(targetId);
+const icon = this.querySelector('.accordion-icon');
+content.classList.toggle('active');
+if (content.classList.contains('active')) {
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+} else {
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+}
+});
+});
+});
+</script>
+<script id="volunteer-modal-script">
+document.addEventListener('DOMContentLoaded', function() {
+const volunteerModal = document.getElementById('volunteer-modal');
+const closeVolunteerModal = document.getElementById('close-volunteer-modal');
+const volunteerForm = document.getElementById('volunteer-form');
+const applyButtons = document.querySelectorAll('.volunteer-apply-btn');
+applyButtons.forEach(button => {
+button.addEventListener('click', function() {
+const program = this.getAttribute('data-program');
+const programSelect = document.getElementById('program');
+if (programSelect) {
+const options = programSelect.options;
+for (let i = 0; i < options.length; i++) {
+if (options[i].text === program) {
+options[i].selected = true;
+break;
+}
+}
+}
+volunteerModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+});
+closeVolunteerModal.addEventListener('click', function() {
+volunteerModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+volunteerModal.addEventListener('click', function(e) {
+if (e.target === volunteerModal) {
+volunteerModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+}
+});
+volunteerForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new URLSearchParams();
+const form = e.target;
+// Collect form data
+for (const pair of new FormData(form)) {
+if (pair[0] === 'terms') {
+if (pair[1] === 'on') {
+formData.append(pair[0], 'true');
+}
+} else {
+formData.append(pair[0], pair[1]);
+}
+}
+// Show loading message
+const loadingMessage = document.createElement('div');
+loadingMessage.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+loadingMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Submitting your application...</span>
+</div>
+`;
+document.body.appendChild(loadingMessage);
+// Submit form data
+fetch('https://readdy.ai/api/form/d1mck9r8qr2ng947gr60', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: formData
+})
+.then(response => {
+loadingMessage.remove();
+const successMessage = document.createElement('div');
+successMessage.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Thank you for your interest! We'll contact you soon.</span>
+</div>
+`;
+document.body.appendChild(successMessage);
+// Close modal and reset form
+volunteerModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+form.reset();
+// Remove success message after 5 seconds
+setTimeout(() => {
+successMessage.remove();
+}, 5000);
+})
+.catch(error => {
+loadingMessage.remove();
+const errorMessage = document.createElement('div');
+errorMessage.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+errorMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+<span>Failed to submit form. Please try again.</span>
+</div>
+`;
+document.body.appendChild(errorMessage);
+setTimeout(() => {
+errorMessage.remove();
+}, 5000);
+});
+});
+});
+</script>
+<script id="gallery-modal-script">
+document.addEventListener('DOMContentLoaded', function() {
+const seeMoreButton = document.getElementById('see-more-photos');
+const galleryModal = document.getElementById('gallery-modal');
+const closeGallery = document.getElementById('close-gallery');
+const galleryImages = document.querySelectorAll('#gallery-modal img');
+let currentImageIndex = 0;
+let isZoomed = false;
+function showImagePreview(src, alt) {
+const previewContainer = document.createElement('div');
+previewContainer.className = 'fixed inset-0 bg-black/90 z-[60] flex items-center justify-center';
+previewContainer.innerHTML = `
+<div class="relative max-w-4xl w-full mx-4">
+<button class="absolute top-4 right-4 text-white hover:text-gray-300">
+<i class="ri-close-line ri-2x"></i>
+</button>
+<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg cursor-zoom-in">
+<div class="absolute left-4 right-4 bottom-4 text-white text-center">
+<p class="text-sm">${alt}</p>
+</div>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 ${currentImageIndex === 0 ? 'hidden' : ''}">
+<i class="ri-arrow-left-line ri-2x"></i>
+</button>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 ${currentImageIndex === galleryImages.length - 1 ? 'hidden' : ''}">
+<i class="ri-arrow-right-line ri-2x"></i>
+</button>
+</div>
+`;
+const closeBtn = previewContainer.querySelector('button');
+const img = previewContainer.querySelector('img');
+const prevBtn = previewContainer.querySelectorAll('button')[1];
+const nextBtn = previewContainer.querySelectorAll('button')[2];
+closeBtn.addEventListener('click', () => previewContainer.remove());
+previewContainer.addEventListener('click', (e) => {
+if (e.target === previewContainer) previewContainer.remove();
+});
+img.addEventListener('click', () => {
+isZoomed = !isZoomed;
+img.style.transform = isZoomed ? 'scale(1.5)' : 'scale(1)';
+img.style.transition = 'transform 0.3s';
+img.style.cursor = isZoomed ? 'zoom-out' : 'zoom-in';
+});
+prevBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+if (currentImageIndex > 0) {
+currentImageIndex--;
+const prevImage = galleryImages[currentImageIndex];
+img.src = prevImage.src;
+img.alt = prevImage.alt;
+previewContainer.querySelector('p').textContent = prevImage.alt;
+prevBtn.classList.toggle('hidden', currentImageIndex === 0);
+nextBtn.classList.remove('hidden');
+}
+});
+nextBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+if (currentImageIndex < galleryImages.length - 1) {
+currentImageIndex++;
+const nextImage = galleryImages[currentImageIndex];
+img.src = nextImage.src;
+img.alt = nextImage.alt;
+previewContainer.querySelector('p').textContent = nextImage.alt;
+nextBtn.classList.toggle('hidden', currentImageIndex === galleryImages.length - 1);
+prevBtn.classList.remove('hidden');
+}
+});
+document.body.appendChild(previewContainer);
+}
+galleryImages.forEach((img, index) => {
+img.addEventListener('click', () => {
+currentImageIndex = index;
+showImagePreview(img.src, img.alt);
+});
+});
+seeMoreButton.addEventListener('click', function() {
+galleryModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closeGallery.addEventListener('click', function() {
+galleryModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+galleryModal.addEventListener('click', function(e) {
+if (e.target === galleryModal) {
+galleryModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+}
+});
+});
+</script>
+<script id="chat-dialog-script">
+document.addEventListener('DOMContentLoaded', function() {
+const startChatBtn = document.getElementById('start-chat-btn');
+const chatDialog = document.getElementById('chat-dialog');
+const closeChat = document.getElementById('close-chat');
+const chatHeader = document.getElementById('chat-header');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+startChatBtn.addEventListener('click', function() {
+chatDialog.classList.remove('hidden');
+});
+closeChat.addEventListener('click', function() {
+chatDialog.classList.add('hidden');
+});
+chatHeader.addEventListener('mousedown', dragStart);
+document.addEventListener('mousemove', drag);
+document.addEventListener('mouseup', dragEnd);
+function dragStart(e) {
+initialX = e.clientX - xOffset;
+initialY = e.clientY - yOffset;
+if (e.target === chatHeader) {
+isDragging = true;
+}
+}
+function drag(e) {
+if (isDragging) {
+e.preventDefault();
+currentX = e.clientX - initialX;
+currentY = e.clientY - initialY;
+xOffset = currentX;
+yOffset = currentY;
+setTranslate(currentX, currentY, chatDialog);
+}
+}
+function setTranslate(xPos, yPos, el) {
+el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+}
+function dragEnd() {
+initialX = currentX;
+initialY = currentY;
+isDragging = false;
+}
+chatForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const message = chatInput.value.trim();
+if (message) {
+// Add user message
+const userMessage = document.createElement('div');
+userMessage.className = 'flex items-start gap-2 justify-end';
+userMessage.innerHTML = `
+<div class="bg-primary/10 rounded-lg p-3 max-w-[80%]">
+<p class="text-sm text-gray-800">${message}</p>
+</div>
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-user-line text-white"></i>
+</div>
+`;
+chatMessages.appendChild(userMessage);
+// Show loading message
+const loadingMessage = document.createElement('div');
+loadingMessage.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+loadingMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Sending message...</span>
+</div>
+`;
+document.body.appendChild(loadingMessage);
+// Prepare form data
+const formData = new URLSearchParams();
+formData.append('message', message);
+// Submit form data
+fetch('https://readdy.ai/api/form/d1mcnlnvjl9a303j7vn0', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: formData
+})
+.then(response => {
+loadingMessage.remove();
+const successMessage = document.createElement('div');
+successMessage.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Message sent successfully!</span>
+</div>
+`;
+document.body.appendChild(successMessage);
+// Add agent response
+const agentMessage = document.createElement('div');
+agentMessage.className = 'flex items-start gap-2';
+agentMessage.innerHTML = `
+<div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-customer-service-2-line text-primary"></i>
+</div>
+<div class="bg-gray-100 rounded-lg p-3 max-w-[80%]">
+<p class="text-sm text-gray-800">Thank you for your message. One of our support agents will respond shortly.</p>
+</div>
+`;
+chatMessages.appendChild(agentMessage);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+setTimeout(() => {
+successMessage.remove();
+}, 5000);
+})
+.catch(error => {
+loadingMessage.remove();
+const errorMessage = document.createElement('div');
+errorMessage.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+errorMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+<span>Failed to send message. Please try again.</span>
+</div>
+`;
+document.body.appendChild(errorMessage);
+setTimeout(() => {
+errorMessage.remove();
+}, 5000);
+});
+chatInput.value = '';
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+});
+});
+</script>
+<script id="contact-form-script">
+document.addEventListener('DOMContentLoaded', function() {
+const forms = document.querySelectorAll('form[data-readdy-form]');
+forms.forEach(form => {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new URLSearchParams();
+const form = e.target;
+// Collect form data
+for (const pair of new FormData(form)) {
+if (pair[0] === 'consent') {
+if (pair[1] === 'on') {
+formData.append(pair[0], 'true');
+}
+} else {
+formData.append(pair[0], pair[1]);
+}
+}
+// Show loading message
+const loadingMessage = document.createElement('div');
+loadingMessage.className = 'fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded';
+loadingMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-loader-4-line mr-2 animate-spin"></i>
+<span>Sending message...</span>
+</div>
+`;
+document.body.appendChild(loadingMessage);
+// Submit form data
+fetch('https://readdy.ai/api/form/d1mcm638qr2ng947gr6g', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: formData
+})
+.then(response => {
+loadingMessage.remove();
+const successMessage = document.createElement('div');
+successMessage.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+successMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span>Message sent successfully!</span>
+</div>
+`;
+document.body.appendChild(successMessage);
+form.reset();
+setTimeout(() => {
+successMessage.remove();
+}, 5000);
+})
+.catch(error => {
+loadingMessage.remove();
+const errorMessage = document.createElement('div');
+errorMessage.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+errorMessage.innerHTML = `
+<div class="flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+<span>Failed to send message. Please try again.</span>
+</div>
+`;
+document.body.appendChild(errorMessage);
+setTimeout(() => {
+errorMessage.remove();
+}, 5000);
+});
+});
+});
+});
+</script>
+<script id="donation-chart-script">
+document.addEventListener('DOMContentLoaded', function() {
+const chartDom = document.getElementById('donation-chart');
+const myChart = echarts.init(chartDom);
+const option = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+borderColor: '#ddd',
+borderWidth: 1,
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+top: '5%',
+left: 'center',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Donation Allocation',
+type: 'pie',
+radius: ['40%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false,
+position: 'center'
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 16,
+fontWeight: 'bold',
+color: '#1f2937'
+}
+},
+labelLine: {
+show: false
+},
+data: [
+{ value: 55, name: 'Education Programs', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 20, name: 'Agricultural Projects', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 15, name: 'Healthcare Services', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 10, name: 'Administration', itemStyle: { color: 'rgba(252, 141, 98, 1)' } }
+]
+}
+]
+};
+myChart.setOption(option);
+window.addEventListener('resize', function() {
+myChart.resize();
+});
+});
+</script>
+</body>
+</html>

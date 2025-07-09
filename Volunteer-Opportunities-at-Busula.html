@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer - Busula Agri Foundation</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.custom-radio {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 50%;
+position: relative;
+}
+.custom-radio:checked {
+border-color: #4CAF50;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 4px;
+top: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #4CAF50;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+border-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.accordion-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+max-height: 500px;
+}
+.testimonial-slide {
+display: none;
+}
+.testimonial-slide.active {
+display: block;
+}
+.process-step::after {
+content: '';
+position: absolute;
+top: 24px;
+right: -50%;
+width: 100%;
+height: 2px;
+background-color: #e5e7eb;
+z-index: -1;
+}
+.process-step:last-child::after {
+display: none;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-white ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-primary">Busula Agri Foundation</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Donate</a>
+<a href="#" class="text-primary font-medium border-b-2 border-primary">Volunteer</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+</nav>
+<a href="#volunteer-form" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button whitespace-nowrap">Apply Now</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Donate</a>
+<a href="#" class="text-primary font-medium py-2 border-b border-gray-100">Volunteer</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2">Contact</a>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button text-center whitespace-nowrap">Apply Now</a>
+</div>
+</div>
+</header>
+<!-- Breadcrumb -->
+<div class="bg-gray-100 py-2">
+<div class="container mx-auto px-4">
+<div class="flex items-center text-sm text-gray-600">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="hover:text-primary">Home</a>
+<i class="ri-arrow-right-s-line mx-2"></i>
+<span class="text-primary">Volunteer</span>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="ml-auto text-primary hover:underline flex items-center">
+<i class="ri-arrow-left-line mr-1"></i> Back to original page
+</a>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="hero-section w-full relative" style="background-image: url('https://readdy.ai/api/search-image?query=A%20diverse%20group%20of%20volunteers%20working%20together%20in%20a%20thriving%20community%20garden%20in%20Africa.%20They%20are%20planting%20seedlings%2C%20watering%20plants%2C%20and%20harvesting%20vegetables.%20The%20garden%20has%20neat%20rows%20of%20various%20crops%20and%20vegetables.%20Some%20volunteers%20are%20teaching%20local%20children%20about%20sustainable%20farming%20practices.%20The%20atmosphere%20is%20collaborative%20and%20joyful%2C%20with%20people%20of%20different%20ages%20and%20backgrounds%20working%20together.%20The%20lighting%20is%20warm%20and%20natural%2C%20creating%20an%20inspiring%20and%20hopeful%20scene%20of%20community%20service.&width=1920&height=600&seq=volunteer-hero&orientation=landscape');">
+<div class="absolute inset-0 bg-black/50"></div>
+<div class="container mx-auto px-4 py-24 relative z-10">
+<div class="max-w-3xl mx-auto text-center text-white">
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Make a Difference Through Volunteering</h1>
+<p class="text-lg md:text-xl mb-8">Join our community of dedicated volunteers and help us create sustainable solutions for vulnerable children across Africa. Your time and skills can transform lives.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Apply Now</a>
+<a href="#opportunities" class="bg-white hover:bg-gray-100 text-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Opportunities Section -->
+<section id="opportunities" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Current Volunteer Opportunities</h2>
+<p class="text-gray-600">Explore our current openings and find the perfect way to contribute your skills and passion</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Opportunity 1 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Agricultural Mentor</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>10-15 hrs/week</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-map-pin-line"></i>
+<span>On-site (Nairobi)</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Train children and youth in sustainable farming techniques</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Assist with garden planning and maintenance</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Develop educational materials on agriculture</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Background in agriculture or horticulture</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Teaching or mentoring experience</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Patience and good communication skills</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+<!-- Opportunity 2 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Grant Writer</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>5-10 hrs/week</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-computer-line"></i>
+<span>Remote</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Research grant opportunities for our programs</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Draft compelling grant proposals and applications</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Track application deadlines and requirements</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Excellent writing and research skills</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Attention to detail and organization</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Previous grant writing experience preferred</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+<!-- Opportunity 3 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Community Outreach Coordinator</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>8-12 hrs/week</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-map-pin-line"></i>
+<span>Hybrid (Nairobi)</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Build relationships with local communities</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Organize community events and workshops</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Recruit and coordinate local volunteers</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Strong interpersonal and networking skills</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Event planning and coordination experience</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Knowledge of local communities and culture</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+<!-- Opportunity 4 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Social Media Specialist</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>5-8 hrs/week</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-computer-line"></i>
+<span>Remote</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Create engaging content for social media platforms</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Develop and implement social media strategy</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Monitor and respond to social media interactions</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Experience with major social media platforms</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Content creation and copywriting skills</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Basic graphic design and photo editing abilities</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+<!-- Opportunity 5 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Education Program Assistant</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>10-20 hrs/week</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-map-pin-line"></i>
+<span>On-site (Various Schools)</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Assist teachers with agricultural curriculum delivery</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Support students in practical garden activities</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Help organize educational field trips and events</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Background in education or child development</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Patience and ability to work with children</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Basic knowledge of agriculture or gardening</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+<!-- Opportunity 6 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="bg-primary/10 p-4">
+<h3 class="text-xl font-semibold text-gray-800">Fundraising Events Coordinator</h3>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-time-line"></i>
+<span>Variable (Event-based)</span>
+</div>
+<div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+<div class="flex items-center gap-1 text-gray-600 text-sm">
+<i class="ri-map-pin-line"></i>
+<span>Hybrid (Nairobi)</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<h4 class="font-medium text-gray-800 mb-2">Key Responsibilities:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Plan and coordinate fundraising events</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Recruit and manage event volunteers</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Secure sponsorships and in-kind donations</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-medium text-gray-800 mb-2">Required Skills:</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Event planning and management experience</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Strong organizational and multitasking abilities</span>
+</li>
+<li class="flex items-start gap-2">
+<i class="ri-check-line text-primary mt-1 flex-shrink-0"></i>
+<span>Excellent communication and networking skills</span>
+</li>
+</ul>
+</div>
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap w-full text-center" onclick="scrollAndHighlight(event)">Apply Now</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-gift-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Benefits of Volunteering</h2>
+<p class="text-gray-600">Discover how volunteering with Busula Agri Foundation can enrich your life while making a meaningful impact</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Benefit 1 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-heart-pulse-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Make a Real Impact</h3>
+<p class="text-gray-600">
+See the direct results of your contribution as you help children and communities develop sustainable agricultural skills and improve their quality of life.
+</p>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-star-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Develop New Skills</h3>
+<p class="text-gray-600">
+Gain valuable experience and develop professional skills in areas such as agriculture, education, project management, and community development.
+</p>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-team-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Build Connections</h3>
+<p class="text-gray-600">
+Connect with like-minded individuals who share your passion for making a difference, and build a network of personal and professional relationships.
+</p>
+</div>
+<!-- Benefit 4 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-global-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Cultural Exchange</h3>
+<p class="text-gray-600">
+Immerse yourself in local cultures and traditions, gaining a deeper understanding of different communities and broadening your global perspective.
+</p>
+</div>
+<!-- Benefit 5 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-mental-health-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Personal Growth</h3>
+<p class="text-gray-600">
+Experience personal fulfillment and growth as you challenge yourself, step outside your comfort zone, and make a meaningful contribution to society.
+</p>
+</div>
+<!-- Benefit 6 -->
+<div class="bg-white rounded-lg p-8 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-briefcase-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">Career Enhancement</h3>
+<p class="text-gray-600">
+Add valuable experience to your resume, demonstrating your commitment, initiative, and ability to work in diverse and challenging environments.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Volunteer Stories Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-chat-quote-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Volunteer Stories</h2>
+<p class="text-gray-600">Hear from our volunteers about their experiences and the impact they've made</p>
+</div>
+<div class="max-w-4xl mx-auto relative">
+<div class="testimonial-slider">
+<!-- Testimonial 1 -->
+<div class="testimonial-slide active">
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="flex justify-center mb-6">
+<i class="ri-double-quotes-l text-primary ri-3x"></i>
+</div>
+<p class="text-gray-600 italic text-lg mb-8 text-center">
+"Volunteering as an Agricultural Mentor with Busula Agri Foundation has been one of the most rewarding experiences of my life. Seeing the children's faces light up when they harvest their first vegetables is priceless. I've learned as much from them as they have from me."
+</p>
+<div class="flex items-center justify-center gap-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20smiling%20African%20man%20in%20his%20early%2030s%20wearing%20business%20casual%20attire.%20He%20has%20a%20friendly%2C%20approachable%20expression%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20simple%20and%20neutral.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20professional%20headshot%20suitable%20for%20a%20volunteer%20testimonial.&width=80&height=80&seq=volunteer1&orientation=squarish" alt="Michael Odhiambo" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="text-left">
+<h4 class="font-semibold text-gray-800">Michael Odhiambo</h4>
+<p class="text-gray-500 text-sm">Agricultural Mentor | Volunteering for 2 years</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-slide">
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="flex justify-center mb-6">
+<i class="ri-double-quotes-l text-primary ri-3x"></i>
+</div>
+<p class="text-gray-600 italic text-lg mb-8 text-center">
+"As a remote Grant Writer volunteer, I've been able to contribute my skills while maintaining my full-time job. It's incredibly satisfying to know that my writing has helped secure funding for programs that directly impact vulnerable children's access to education and nutrition."
+</p>
+<div class="flex items-center justify-center gap-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20smiling%20African%20woman%20in%20her%20mid-40s%20with%20short%20natural%20hair%20wearing%20professional%20attire.%20She%20has%20a%20confident%20and%20warm%20expression%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20simple%20and%20neutral.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20professional%20headshot%20suitable%20for%20a%20volunteer%20testimonial.&width=80&height=80&seq=volunteer2&orientation=squarish" alt="Sarah Mwangi" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="text-left">
+<h4 class="font-semibold text-gray-800">Sarah Mwangi</h4>
+<p class="text-gray-500 text-sm">Grant Writer | Volunteering for 1.5 years</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-slide">
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="flex justify-center mb-6">
+<i class="ri-double-quotes-l text-primary ri-3x"></i>
+</div>
+<p class="text-gray-600 italic text-lg mb-8 text-center">
+"Coming from a corporate background, I wanted to use my event planning skills for a good cause. As a Fundraising Events Coordinator, I've organized events that have raised significant funds for the foundation while connecting with amazing people who share the same passion for helping others."
+</p>
+<div class="flex items-center justify-center gap-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20smiling%20young%20African%20woman%20in%20her%20late%2020s%20wearing%20business%20casual%20attire.%20She%20has%20a%20friendly%2C%20enthusiastic%20expression%20and%20is%20looking%20directly%20at%20the%20camera.%20Her%20hair%20is%20styled%20in%20braids.%20The%20background%20is%20simple%20and%20neutral.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20professional%20headshot%20suitable%20for%20a%20volunteer%20testimonial.&width=80&height=80&seq=volunteer3&orientation=squarish" alt="Rebecca Njeri" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="text-left">
+<h4 class="font-semibold text-gray-800">Rebecca Njeri</h4>
+<p class="text-gray-500 text-sm">Events Coordinator | Volunteering for 8 months</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Arrows -->
+<button class="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-600 hover:text-primary focus:outline-none" id="prev-testimonial">
+<i class="ri-arrow-left-s-line ri-lg"></i>
+</button>
+<button class="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-600 hover:text-primary focus:outline-none" id="next-testimonial">
+<i class="ri-arrow-right-s-line ri-lg"></i>
+</button>
+<!-- Dots -->
+<div class="flex justify-center mt-8 gap-2">
+<button class="w-3 h-3 rounded-full bg-primary" data-index="0"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Application Process Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-flow-chart-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Application Process</h2>
+<p class="text-gray-600">Follow these simple steps to begin your volunteer journey with us</p>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="relative">
+<div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 -translate-x-1/2 hidden md:block"></div>
+<div class="space-y-12 md:space-y-0">
+<!-- Step 1 -->
+<div class="md:flex items-center relative">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Submit Application</h3>
+<p class="text-gray-600">
+Fill out our online volunteer application form with your personal information, skills, interests, and availability.
+</p>
+<p class="text-gray-500 text-sm mt-2">Estimated time: 15 minutes</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-10 hidden md:flex">
+<span class="font-bold">1</span>
+</div>
+<div class="md:hidden flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<span class="font-bold">1</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">Submit Application</h3>
+</div>
+<div class="md:w-1/2 md:pl-12">
+</div>
+</div>
+<!-- Step 2 -->
+<div class="md:flex items-center relative">
+<div class="md:w-1/2 md:pr-12">
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-10 hidden md:flex">
+<span class="font-bold">2</span>
+</div>
+<div class="md:hidden flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<span class="font-bold">2</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">Interview</h3>
+</div>
+<div class="md:w-1/2 md:pl-12">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Interview</h3>
+<p class="text-gray-600">
+Participate in a brief interview (in-person or virtual) to discuss your background, motivations, and how you can contribute to our mission.
+</p>
+<p class="text-gray-500 text-sm mt-2">Estimated time: 30-45 minutes</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="md:flex items-center relative">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Background Check</h3>
+<p class="text-gray-600">
+Complete a background check process, which is required for all volunteers who will work directly with children or handle sensitive information.
+</p>
+<p class="text-gray-500 text-sm mt-2">Estimated time: 3-5 business days</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-10 hidden md:flex">
+<span class="font-bold">3</span>
+</div>
+<div class="md:hidden flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<span class="font-bold">3</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">Background Check</h3>
+</div>
+<div class="md:w-1/2 md:pl-12">
+</div>
+</div>
+<!-- Step 4 -->
+<div class="md:flex items-center relative">
+<div class="md:w-1/2 md:pr-12">
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-10 hidden md:flex">
+<span class="font-bold">4</span>
+</div>
+<div class="md:hidden flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<span class="font-bold">4</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">Orientation & Training</h3>
+</div>
+<div class="md:w-1/2 md:pl-12">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Orientation & Training</h3>
+<p class="text-gray-600">
+Attend an orientation session to learn about our organization, programs, and policies, followed by role-specific training to prepare you for your volunteer position.
+</p>
+<p class="text-gray-500 text-sm mt-2">Estimated time: 2-4 hours</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="md:flex items-center relative">
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Begin Volunteering</h3>
+<p class="text-gray-600">
+Start your volunteer role with the support of our staff and fellow volunteers. Regular check-ins will help ensure a positive experience for everyone.
+</p>
+<p class="text-gray-500 text-sm mt-2">Timeline: Based on your availability and role</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-10 hidden md:flex">
+<span class="font-bold">5</span>
+</div>
+<div class="md:hidden flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<span class="font-bold">5</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">Begin Volunteering</h3>
+</div>
+<div class="md:w-1/2 md:pl-12">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-question-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+<p class="text-gray-600">Find answers to common questions about volunteering with Busula Agri Foundation</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">What is the minimum time commitment required?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+The minimum time commitment varies by role. Most positions require at least 5 hours per week for a minimum of 3 months. However, we also offer flexible and event-based opportunities for those with limited availability. We work with volunteers to find a schedule that fits their life while still making a meaningful contribution.
+</p>
+</div>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">What training and support will I receive?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+All volunteers receive a comprehensive orientation to our organization and specific training for their role. Ongoing support is provided through regular check-ins with volunteer coordinators, access to resources and materials, and opportunities for additional skill development. We're committed to ensuring our volunteers feel prepared and supported throughout their service.
+</p>
+</div>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">Are there age requirements for volunteering?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+Most volunteer positions require volunteers to be at least 18 years old. However, we do offer family and youth volunteer opportunities for those aged 14-17 with parental consent and supervision. These opportunities are designed to be age-appropriate and educational while still making a meaningful contribution to our mission.
+</p>
+</div>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">Why is a background check required?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+The safety of the children and communities we serve is our top priority. Background checks are required for all volunteers who will work directly with children or handle sensitive information. This is standard practice for organizations working with vulnerable populations. The background check process is simple, confidential, and typically completed within 3-5 business days.
+</p>
+</div>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">Can I volunteer remotely from another country?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+Yes, we offer several remote volunteer opportunities that can be performed from anywhere in the world, including grant writing, social media management, graphic design, and research. These positions allow international supporters to contribute their skills to our mission without needing to be physically present in Kenya. We use various digital tools to facilitate communication and collaboration with our remote volunteers.
+</p>
+</div>
+</div>
+</div>
+<!-- FAQ Item 6 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 bg-gray-50 text-left">
+<span class="font-medium text-gray-800">Are there any costs associated with volunteering?</span>
+<i class="ri-arrow-down-s-line text-gray-500 accordion-icon"></i>
+</button>
+<div class="accordion-content">
+<div class="p-4 border-t border-gray-200">
+<p class="text-gray-600">
+There are no fees to volunteer with us. However, volunteers are responsible for their own transportation to and from volunteer sites. For international volunteers coming to Kenya, we can provide guidance on accommodation and local transportation, but these costs would be the volunteer's responsibility. Some volunteer positions may require specific equipment or materials, which we try to provide whenever possible.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Volunteer Registration Form Section -->
+<section id="volunteer-form" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-add-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Volunteer Registration</h2>
+<p class="text-gray-600">Complete the form below to start your volunteer journey with Busula Agri Foundation</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-8">
+<form id="volunteer-form" data-readdy-form action="https://readdy.ai/api/form/d1medb4mhhcaifvsme0g" method="post">
+<!-- Personal Information -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Personal Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label for="first-name" class="block text-gray-700 font-medium mb-2">First Name*</label>
+<input type="text" id="first-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name*</label>
+<input type="text" id="last-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address*</label>
+<input type="email" id="email" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number*</label>
+<input type="tel" id="phone" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<div class="mb-4">
+<label for="address" class="block text-gray-700 font-medium mb-2">Address*</label>
+<input type="text" id="address" class="w-full border border-gray-300 rounded-button py-2 px-3 mb-2" required>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<input type="text" id="city" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="City" required>
+</div>
+<div>
+<input type="text" id="state" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="State/Province" required>
+</div>
+<div>
+<input type="text" id="zip" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="Zip/Postal Code" required>
+</div>
+</div>
+</div>
+<div>
+<label for="dob" class="block text-gray-700 font-medium mb-2">Date of Birth*</label>
+<input type="date" id="dob" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<!-- Areas of Interest -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Areas of Interest</h3>
+<p class="text-gray-600 mb-4">Select the volunteer positions you're interested in (select all that apply)</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-agricultural" class="custom-checkbox mt-1">
+<label for="interest-agricultural" class="text-gray-700">Agricultural Mentor</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-grant" class="custom-checkbox mt-1">
+<label for="interest-grant" class="text-gray-700">Grant Writer</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-outreach" class="custom-checkbox mt-1">
+<label for="interest-outreach" class="text-gray-700">Community Outreach Coordinator</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-social" class="custom-checkbox mt-1">
+<label for="interest-social" class="text-gray-700">Social Media Specialist</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-education" class="custom-checkbox mt-1">
+<label for="interest-education" class="text-gray-700">Education Program Assistant</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-events" class="custom-checkbox mt-1">
+<label for="interest-events" class="text-gray-700">Fundraising Events Coordinator</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="interest-other" class="custom-checkbox mt-1">
+<label for="interest-other" class="text-gray-700">Other</label>
+</div>
+</div>
+<div class="mt-4" id="other-interest-container" style="display: none;">
+<label for="other-interest" class="block text-gray-700 font-medium mb-2">Please specify:</label>
+<input type="text" id="other-interest" class="w-full border border-gray-300 rounded-button py-2 px-3">
+</div>
+</div>
+<!-- Availability -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Availability</h3>
+<div class="mb-4">
+<label for="start-date" class="block text-gray-700 font-medium mb-2">When can you start?*</label>
+<input type="date" id="start-date" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div class="mb-4">
+<label for="commitment" class="block text-gray-700 font-medium mb-2">How long can you commit to volunteering?*</label>
+<select id="commitment" class="w-full border border-gray-300 rounded-button py-2 px-3 appearance-none bg-white pr-8 relative" required>
+<option value="">Select an option</option>
+<option value="3-months">3 months</option>
+<option value="6-months">6 months</option>
+<option value="1-year">1 year</option>
+<option value="ongoing">Ongoing</option>
+<option value="event-based">Event-based only</option>
+</select>
+<div class="relative">
+<div class="absolute right-3 top-[-28px] pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 font-medium mb-2">Days available:*</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-monday" class="custom-checkbox">
+<label for="day-monday" class="text-gray-700">Monday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-tuesday" class="custom-checkbox">
+<label for="day-tuesday" class="text-gray-700">Tuesday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-wednesday" class="custom-checkbox">
+<label for="day-wednesday" class="text-gray-700">Wednesday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-thursday" class="custom-checkbox">
+<label for="day-thursday" class="text-gray-700">Thursday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-friday" class="custom-checkbox">
+<label for="day-friday" class="text-gray-700">Friday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-saturday" class="custom-checkbox">
+<label for="day-saturday" class="text-gray-700">Saturday</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="day-sunday" class="custom-checkbox">
+<label for="day-sunday" class="text-gray-700">Sunday</label>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-gray-700 font-medium mb-2">Time of day available:*</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="time-morning" class="custom-checkbox">
+<label for="time-morning" class="text-gray-700">Morning (8am-12pm)</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="time-afternoon" class="custom-checkbox">
+<label for="time-afternoon" class="text-gray-700">Afternoon (12pm-5pm)</label>
+</div>
+<div class="flex items-center gap-2">
+<input type="checkbox" id="time-evening" class="custom-checkbox">
+<label for="time-evening" class="text-gray-700">Evening (5pm-9pm)</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Skills & Experience -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Skills & Experience</h3>
+<div class="mb-4">
+<label for="skills" class="block text-gray-700 font-medium mb-2">Relevant Skills & Qualifications</label>
+<textarea id="skills" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="Please list any skills, qualifications, or certifications relevant to your volunteer interests"></textarea>
+</div>
+<div class="mb-4">
+<label for="experience" class="block text-gray-700 font-medium mb-2">Previous Volunteer Experience</label>
+<textarea id="experience" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="Please describe any previous volunteer experience you have"></textarea>
+</div>
+<div>
+<label for="languages" class="block text-gray-700 font-medium mb-2">Languages Spoken</label>
+<input type="text" id="languages" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="e.g., English, Swahili, etc.">
+</div>
+</div>
+<!-- References -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">References</h3>
+<p class="text-gray-600 mb-4">Please provide two references who can speak to your character and abilities</p>
+<!-- Reference 1 -->
+<div class="p-4 bg-gray-50 rounded-lg mb-4">
+<h4 class="font-medium text-gray-800 mb-3">Reference 1</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label for="ref1-name" class="block text-gray-700 font-medium mb-2">Full Name*</label>
+<input type="text" id="ref1-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="ref1-relationship" class="block text-gray-700 font-medium mb-2">Relationship*</label>
+<input type="text" id="ref1-relationship" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="ref1-email" class="block text-gray-700 font-medium mb-2">Email*</label>
+<input type="email" id="ref1-email" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="ref1-phone" class="block text-gray-700 font-medium mb-2">Phone*</label>
+<input type="tel" id="ref1-phone" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+</div>
+<!-- Reference 2 -->
+<div class="p-4 bg-gray-50 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-3">Reference 2</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label for="ref2-name" class="block text-gray-700 font-medium mb-2">Full Name*</label>
+<input type="text" id="ref2-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="ref2-relationship" class="block text-gray-700 font-medium mb-2">Relationship*</label>
+<input type="text" id="ref2-relationship" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="ref2-email" class="block text-gray-700 font-medium mb-2">Email*</label>
+<input type="email" id="ref2-email" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="ref2-phone" class="block text-gray-700 font-medium mb-2">Phone*</label>
+<input type="tel" id="ref2-phone" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Information -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Additional Information</h3>
+<div class="mb-4">
+<label for="why-volunteer" class="block text-gray-700 font-medium mb-2">Why do you want to volunteer with Busula Agri Foundation?*</label>
+<textarea id="why-volunteer" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3" required></textarea>
+</div>
+<div class="mb-4">
+<label for="goals" class="block text-gray-700 font-medium mb-2">What do you hope to gain from this volunteer experience?</label>
+<textarea id="goals" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3"></textarea>
+</div>
+<div>
+<label for="additional-info" class="block text-gray-700 font-medium mb-2">Is there anything else you'd like us to know?</label>
+<textarea id="additional-info" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3"></textarea>
+</div>
+</div>
+<!-- Agreements -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Agreements</h3>
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<input type="checkbox" id="agreement-background" class="custom-checkbox mt-1" required>
+<label for="agreement-background" class="text-gray-700">
+I understand that a background check may be required depending on the volunteer position.*
+</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="agreement-policies" class="custom-checkbox mt-1" required>
+<label for="agreement-policies" class="text-gray-700">
+I agree to abide by the policies and procedures of Busula Agri Foundation.*
+</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="agreement-info" class="custom-checkbox mt-1" required>
+<label for="agreement-info" class="text-gray-700">
+I certify that the information provided in this application is true and complete.*
+</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="agreement-newsletter" class="custom-checkbox mt-1">
+<label for="agreement-newsletter" class="text-gray-700">
+I would like to receive the Busula Agri Foundation newsletter and updates.
+</label>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="text-center">
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-10 py-3 !rounded-button font-medium text-center whitespace-nowrap">Submit Application</button>
+<p class="text-sm text-gray-500 mt-3">
+We'll review your application and contact you within 5-7 business days.
+</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2">
+<h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Our Volunteer Coordinator</h3>
+<p class="text-gray-600 mb-6">
+Have questions about volunteering with us? Our volunteer coordinator is here to help you find the perfect opportunity to make a difference.
+</p>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-user-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Grace Muthoni</h4>
+<p class="text-gray-600 text-sm">Volunteer Coordinator</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Email</h4>
+<p class="text-gray-600 text-sm">volunteer@busulaagri.org</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Phone</h4>
+<p class="text-gray-600 text-sm">+254 712 345 679</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-time-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Office Hours</h4>
+<p class="text-gray-600 text-sm">Monday-Friday: 9am-5pm EAT</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div class="md:w-1/2">
+<h3 class="text-2xl font-bold text-gray-800 mb-4">Quick Message</h3>
+<form>
+<div class="mb-4">
+<label for="quick-name" class="block text-gray-700 font-medium mb-2">Name*</label>
+<input type="text" id="quick-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div class="mb-4">
+<label for="quick-email" class="block text-gray-700 font-medium mb-2">Email*</label>
+<input type="email" id="quick-email" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div class="mb-4">
+<label for="quick-subject" class="block text-gray-700 font-medium mb-2">Subject*</label>
+<input type="text" id="quick-subject" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div class="mb-4">
+<label for="quick-message" class="block text-gray-700 font-medium mb-2">Message*</label>
+<textarea id="quick-message" rows="4" class="w-full border border-gray-300 rounded-button py-2 px-3" required></textarea>
+</div>
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button font-medium text-center whitespace-nowrap">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-primary/10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Ready to Make a Difference?</h2>
+<p class="text-gray-600 text-lg mb-8">Join our community of dedicated volunteers and help us create sustainable solutions for vulnerable children across Africa.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#volunteer-form" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Apply Now</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="bg-white hover:bg-gray-100 text-primary border border-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Donate Instead</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-white">Busula Agri</span>
+</a>
+<p class="text-gray-400 mb-4">Dedicated to improving the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex gap-4">
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3900c415-96dc-4134-be14-2a89536bfccb" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+<li><a href="#" class="text-white hover:text-white transition-colors">Volunteer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sponsor a Child</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corporate Partnerships</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fundraise for Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-3">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400">123 Mombasa Road, Nairobi, Kenya</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-mail-line text-primary mt-1"></i>
+<span class="text-gray-400">info@busulaagri.org</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-phone-line text-primary mt-1"></i>
+<span class="text-gray-400">+254 712 345 678</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-time-line text-primary mt-1"></i>
+<span class="text-gray-400">Mon-Fri: 9am-5pm EAT</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Busula Agri Foundation. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+});
+</script>
+<script id="testimonial-slider-script">
+document.addEventListener('DOMContentLoaded', function() {
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.testimonial-slider .flex.justify-center button');
+const prevButton = document.getElementById('prev-testimonial');
+const nextButton = document.getElementById('next-testimonial');
+let currentIndex = 0;
+function showSlide(index) {
+slides.forEach(slide => slide.classList.remove('active'));
+dots.forEach(dot => dot.classList.remove('bg-primary'));
+dots.forEach(dot => dot.classList.add('bg-gray-300'));
+slides[index].classList.add('active');
+dots[index].classList.remove('bg-gray-300');
+dots[index].classList.add('bg-primary');
+currentIndex = index;
+}
+function nextSlide() {
+let newIndex = currentIndex + 1;
+if (newIndex >= slides.length) {
+newIndex = 0;
+}
+showSlide(newIndex);
+}
+function prevSlide() {
+let newIndex = currentIndex - 1;
+if (newIndex < 0) {
+newIndex = slides.length - 1;
+}
+showSlide(newIndex);
+}
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+dots.forEach((dot, index) => {
+dot.addEventListener('click', () => {
+showSlide(index);
+});
+});
+// Auto-advance slides every 5 seconds
+setInterval(nextSlide, 5000);
+});
+</script>
+<script id="accordion-script">
+document.addEventListener('DOMContentLoaded', function() {
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+accordionHeaders.forEach(header => {
+header.addEventListener('click', function() {
+const content = this.nextElementSibling;
+const icon = this.querySelector('.accordion-icon');
+// Toggle active class on content
+content.classList.toggle('active');
+// Rotate icon
+if (content.classList.contains('active')) {
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+} else {
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+}
+// Close other accordions
+accordionHeaders.forEach(otherHeader => {
+if (otherHeader !== header) {
+const otherContent = otherHeader.nextElementSibling;
+const otherIcon = otherHeader.querySelector('.accordion-icon');
+otherContent.classList.remove('active');
+otherIcon.classList.remove('ri-arrow-up-s-line');
+otherIcon.classList.add('ri-arrow-down-s-line');
+}
+});
+});
+});
+});
+</script>
+<script id="form-interactions-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Function to scroll to form and highlight selected position
+window.scrollAndHighlight = function(event) {
+    event.preventDefault();
+    
+    // Get the position title from the closest parent card
+    const card = event.target.closest('.bg-gray-50');
+    const positionTitle = card.querySelector('h3').textContent;
+    
+    // Find and check the corresponding checkbox in the form
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="interest-"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.nextElementSibling.textContent.trim() === positionTitle) {
+            checkbox.checked = true;
+            // Trigger change event if it's the "Other" checkbox
+            if (checkbox.id === 'interest-other') {
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+    
+    // Scroll to the form
+    const form = document.getElementById('volunteer-form');
+    form.scrollIntoView({ behavior: 'smooth' });
+    
+    // Add highlight effect to the form
+    form.classList.add('ring-4', 'ring-primary/20');
+    setTimeout(() => {
+        form.classList.remove('ring-4', 'ring-primary/20');
+    }, 2000);
+}
+// Show/hide "Other" interest field
+const interestOther = document.getElementById('interest-other');
+const otherInterestContainer = document.getElementById('other-interest-container');
+const volunteerForm = document.getElementById('volunteer-form');
+interestOther.addEventListener('change', function() {
+if (this.checked) {
+otherInterestContainer.style.display = 'block';
+} else {
+otherInterestContainer.style.display = 'none';
+}
+});
+// Form submission handler
+volunteerForm.addEventListener('submit', async function(e) {
+e.preventDefault();
+// Validate form
+const requiredFields = volunteerForm.querySelectorAll('[required]');
+let isValid = true;
+requiredFields.forEach(field => {
+if (!field.value.trim()) {
+isValid = false;
+field.classList.add('border-red-500');
+} else {
+field.classList.remove('border-red-500');
+}
+});
+// Validate textareas for 500 character limit
+const textareas = volunteerForm.querySelectorAll('textarea');
+textareas.forEach(textarea => {
+if (textarea.value.length > 500) {
+isValid = false;
+textarea.classList.add('border-red-500');
+showMessage('Text input cannot exceed 500 characters', 'error');
+}
+});
+if (!isValid) {
+showMessage('Please fill in all required fields correctly', 'error');
+return;
+}
+// Collect form data
+const formData = new URLSearchParams();
+// Personal Information
+formData.append('first_name', document.getElementById('first-name').value);
+formData.append('last_name', document.getElementById('last-name').value);
+formData.append('email', document.getElementById('email').value);
+formData.append('phone', document.getElementById('phone').value);
+formData.append('address', document.getElementById('address').value);
+formData.append('city', document.getElementById('city').value);
+formData.append('state', document.getElementById('state').value);
+formData.append('zip', document.getElementById('zip').value);
+formData.append('dob', document.getElementById('dob').value);
+// Areas of Interest
+const selectedInterests = [];
+document.querySelectorAll('input[type="checkbox"][id^="interest-"]:checked').forEach(checkbox => {
+selectedInterests.push(checkbox.nextElementSibling.textContent.trim());
+});
+formData.append('interests', selectedInterests.join(', '));
+// Availability
+formData.append('start_date', document.getElementById('start-date').value);
+formData.append('commitment', document.getElementById('commitment').value);
+const selectedDays = [];
+document.querySelectorAll('input[type="checkbox"][id^="day-"]:checked').forEach(checkbox => {
+selectedDays.push(checkbox.nextElementSibling.textContent.trim());
+});
+formData.append('available_days', selectedDays.join(', '));
+const selectedTimes = [];
+document.querySelectorAll('input[type="checkbox"][id^="time-"]:checked').forEach(checkbox => {
+selectedTimes.push(checkbox.nextElementSibling.textContent.trim());
+});
+formData.append('available_times', selectedTimes.join(', '));
+// Skills & Experience
+formData.append('skills', document.getElementById('skills').value);
+formData.append('experience', document.getElementById('experience').value);
+formData.append('languages', document.getElementById('languages').value);
+// References
+formData.append('ref1_name', document.getElementById('ref1-name').value);
+formData.append('ref1_relationship', document.getElementById('ref1-relationship').value);
+formData.append('ref1_email', document.getElementById('ref1-email').value);
+formData.append('ref1_phone', document.getElementById('ref1-phone').value);
+formData.append('ref2_name', document.getElementById('ref2-name').value);
+formData.append('ref2_relationship', document.getElementById('ref2-relationship').value);
+formData.append('ref2_email', document.getElementById('ref2-email').value);
+formData.append('ref2_phone', document.getElementById('ref2-phone').value);
+// Additional Information
+formData.append('why_volunteer', document.getElementById('why-volunteer').value);
+formData.append('goals', document.getElementById('goals').value);
+formData.append('additional_info', document.getElementById('additional-info').value);
+// Agreements
+formData.append('agreement_background', document.getElementById('agreement-background').checked);
+formData.append('agreement_policies', document.getElementById('agreement-policies').checked);
+formData.append('agreement_info', document.getElementById('agreement-info').checked);
+formData.append('agreement_newsletter', document.getElementById('agreement-newsletter').checked);
+try {
+showMessage('Submitting your application...', 'info');
+const response = await fetch(volunteerForm.action, {
+method: 'POST',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: formData
+});
+if (response.ok) {
+showMessage('Your application has been submitted successfully! We will contact you soon.', 'success');
+volunteerForm.reset();
+} else {
+throw new Error('Submission failed');
+}
+} catch (error) {
+showMessage('There was an error submitting your application. Please try again later.', 'error');
+}
+});
+// Message display function
+function showMessage(message, type) {
+const messageDiv = document.createElement('div');
+messageDiv.className = `fixed top-4 right-4 p-4 rounded-lg text-white ${type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500'} shadow-lg z-50`;
+messageDiv.textContent = message;
+document.body.appendChild(messageDiv);
+setTimeout(() => {
+messageDiv.remove();
+}, 5000);
+}
+});
+</script>
+</body>
+</html>

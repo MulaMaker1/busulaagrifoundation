@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate - Busula Agri Foundation</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.custom-radio {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 50%;
+position: relative;
+}
+.custom-radio:checked {
+border-color: #4CAF50;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 4px;
+top: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #4CAF50;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+border-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.donation-amount-btn.active {
+background-color: #4CAF50;
+color: white;
+border-color: #4CAF50;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #4CAF50;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-white ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-primary">Busula Agri Foundation</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+<a href="#" class="text-primary font-medium border-b-2 border-primary">Donate</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/ba5f1228-03ec-4c30-813f-f08d2cc12f9a" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Volunteer</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+</nav>
+<a href="#payment-methods" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button whitespace-nowrap">Donate Now</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="#" class="text-primary font-medium py-2 border-b border-gray-100">Donate</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2 border-b border-gray-100">Volunteer</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Contact</a>
+<a href="#payment-methods" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 !rounded-button text-center whitespace-nowrap">Donate Now</a>
+</div>
+</div>
+</header>
+<!-- Breadcrumb -->
+<div class="bg-gray-100 py-2">
+<div class="container mx-auto px-4">
+<div class="flex items-center text-sm text-gray-600">
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="hover:text-primary">Home</a>
+<i class="ri-arrow-right-s-line mx-2"></i>
+<span class="text-primary">Donate</span>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="hero-section w-full relative" style="background-image: url('https://readdy.ai/api/search-image?query=A%20heartwarming%20scene%20of%20African%20children%20happily%20working%20in%20a%20thriving%20community%20garden%20with%20lush%20green%20vegetables%20and%20crops.%20The%20children%20are%20of%20various%20ages%2C%20smiling%20and%20engaged%20in%20activities%20like%20watering%20plants%2C%20harvesting%20vegetables%2C%20and%20learning%20from%20adults.%20The%20garden%20is%20well-organized%20with%20neat%20rows%20of%20diverse%20crops%2C%20showing%20the%20success%20of%20sustainable%20agriculture.%20The%20background%20shows%20a%20rural%20school%20building%20and%20mountains%20in%20the%20distance.%20The%20lighting%20is%20warm%20and%20golden%2C%20creating%20an%20inspiring%20and%20hopeful%20atmosphere.&width=1920&height=600&seq=donate-hero&orientation=landscape');">
+<div class="absolute inset-0 bg-black/50"></div>
+<div class="container mx-auto px-4 py-24 relative z-10">
+<div class="max-w-3xl mx-auto text-center text-white">
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Make a Difference Today</h1>
+<p class="text-lg md:text-xl mb-8">Your donation helps us provide sustainable agricultural solutions, quality education, and community support to vulnerable children across Africa.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#donation-form" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Donate Now</a>
+<a href="#impact" class="bg-white hover:bg-gray-100 text-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">See Your Impact</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Donation Buttons -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-8">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Make a Quick Donation</h2>
+<p class="text-gray-600">Choose an amount below to make an immediate difference in a child's life</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mb-8">
+<a href="#payment-methods" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap transition-colors">$25</a>
+<a href="#payment-methods" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap transition-colors">$50</a>
+<a href="#payment-methods" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap transition-colors">$100</a>
+<a href="#payment-methods" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap transition-colors">$250</a>
+<a href="#payment-methods" class="bg-primary text-white hover:bg-primary/90 px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Custom Amount</a>
+</div>
+<div class="text-center">
+<p class="text-gray-600 italic">100% of your donation goes directly to our programs supporting children and communities.</p>
+</div>
+</div>
+</section>
+<!-- Main Donation Form Section -->
+<section id="donation-form" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-5xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Donation Form -->
+<div class="lg:col-span-2">
+<div class="bg-white rounded-lg shadow-sm p-8">
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Your Donation</h2>
+<!-- Donation Type Toggle -->
+<div class="mb-8">
+<div class="flex items-center justify-between max-w-xs mx-auto bg-gray-100 rounded-full p-1">
+<button class="donation-type-btn w-1/2 py-2 px-4 rounded-full text-center font-medium active" data-type="one-time">One-time</button>
+<button class="donation-type-btn w-1/2 py-2 px-4 rounded-full text-center font-medium" data-type="monthly">Monthly</button>
+</div>
+<p class="text-center text-sm text-gray-500 mt-2" id="donation-type-description">Make a one-time donation to support our programs</p>
+</div>
+<!-- Donation Amount Selection -->
+<div class="mb-8">
+<label class="block text-gray-700 font-medium mb-3">Select Donation Amount</label>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
+<button class="donation-amount-btn border-2 border-gray-300 rounded-button py-2 px-4 text-center font-medium" data-amount="25">$25</button>
+<button class="donation-amount-btn border-2 border-gray-300 rounded-button py-2 px-4 text-center font-medium" data-amount="50">$50</button>
+<button class="donation-amount-btn border-2 border-gray-300 rounded-button py-2 px-4 text-center font-medium active" data-amount="100">$100</button>
+<button class="donation-amount-btn border-2 border-gray-300 rounded-button py-2 px-4 text-center font-medium" data-amount="250">$250</button>
+<button class="donation-amount-btn border-2 border-gray-300 rounded-button py-2 px-4 text-center font-medium" data-amount="500">$500</button>
+</div>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+<input type="number" id="custom-amount" class="w-full border border-gray-300 rounded-button py-2 pl-8 pr-3" placeholder="Other Amount">
+</div>
+</div>
+<!-- Gift Designation -->
+<div class="mb-8">
+<label for="designation" class="block text-gray-700 font-medium mb-3">Designate Your Gift</label>
+<div class="relative">
+<select id="designation" class="w-full appearance-none border border-gray-300 rounded-button py-2 px-3 pr-8 bg-white">
+<option value="general">General Fund (Greatest Need)</option>
+<option value="education">Agricultural Education</option>
+<option value="nutrition">School Nutrition Program</option>
+<option value="gardens">Community Gardens</option>
+</select>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+<p class="text-sm text-gray-500 mt-2" id="designation-description">Your donation will be used where it's needed most to support our programs and initiatives.</p>
+</div>
+<!-- Personal Information -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Personal Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label for="first-name" class="block text-gray-700 font-medium mb-2">First Name*</label>
+<input type="text" id="first-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div>
+<label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name*</label>
+<input type="text" id="last-name" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+</div>
+<div class="mb-4">
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address*</label>
+<input type="email" id="email" class="w-full border border-gray-300 rounded-button py-2 px-3" required>
+</div>
+<div class="mb-4">
+<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number (Optional)</label>
+<input type="tel" id="phone" class="w-full border border-gray-300 rounded-button py-2 px-3">
+</div>
+<div class="mb-4">
+<label for="address" class="block text-gray-700 font-medium mb-2">Address*</label>
+<input type="text" id="address" class="w-full border border-gray-300 rounded-button py-2 px-3 mb-2" required>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<input type="text" id="city" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="City" required>
+</div>
+<div>
+<input type="text" id="state" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="State/Province" required>
+</div>
+<div>
+<input type="text" id="zip" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="Zip/Postal Code" required>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-2 mb-4">
+<input type="checkbox" id="tax-receipt" class="custom-checkbox mt-1">
+<label for="tax-receipt" class="text-gray-700">I would like to receive a tax receipt for my donation</label>
+</div>
+<div class="flex items-start gap-2">
+<input type="checkbox" id="newsletter" class="custom-checkbox mt-1">
+<label for="newsletter" class="text-gray-700">Sign me up for the newsletter to stay updated on how my donation is making an impact</label>
+</div>
+</div>
+<!-- Payment Information -->
+<div id="payment-methods" class="mb-8">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Payment Method</h3>
+<div class="space-y-4">
+<!-- Credit Card Option -->
+<div class="border border-gray-300 rounded-lg p-4">
+<div class="flex items-center gap-3 mb-4">
+<input type="radio" name="payment-method" id="credit-card" class="custom-radio" checked>
+<label for="credit-card" class="font-medium text-gray-800">Credit/Debit Card</label>
+<div class="flex gap-2 ml-auto">
+<i class="ri-visa-fill text-blue-700 ri-lg"></i>
+<i class="ri-mastercard-fill text-red-600 ri-lg"></i>
+<i class="ri-american-express-fill text-blue-500 ri-lg"></i>
+</div>
+</div>
+<div class="payment-details" id="credit-card-details">
+<div class="mb-4">
+<label for="card-number" class="block text-gray-700 font-medium mb-2">Card Number*</label>
+<input type="text" id="card-number" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="1234 5678 9012 3456">
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label for="expiry" class="block text-gray-700 font-medium mb-2">Expiration Date*</label>
+<input type="text" id="expiry" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="MM/YY">
+</div>
+<div>
+<label for="cvv" class="block text-gray-700 font-medium mb-2">CVV*</label>
+<input type="text" id="cvv" class="w-full border border-gray-300 rounded-button py-2 px-3" placeholder="123">
+</div>
+</div>
+</div>
+</div>
+<!-- PayPal Option -->
+<div class="border border-gray-300 rounded-lg p-4">
+<div class="flex items-center gap-3">
+<input type="radio" name="payment-method" id="paypal" class="custom-radio">
+<label for="paypal" class="font-medium text-gray-800">PayPal</label>
+<i class="ri-paypal-fill text-blue-600 ri-lg ml-auto"></i>
+</div>
+<div class="payment-details hidden mt-4" id="paypal-details">
+<p class="text-gray-600">You will be redirected to PayPal to complete your donation.</p>
+</div>
+</div>
+<!-- Bank Transfer Option -->
+<div class="border border-gray-300 rounded-lg p-4">
+<div class="flex items-center gap-3">
+<input type="radio" name="payment-method" id="bank-transfer" class="custom-radio">
+<label for="bank-transfer" class="font-medium text-gray-800">Bank Transfer</label>
+<i class="ri-bank-fill text-gray-700 ri-lg ml-auto"></i>
+</div>
+<div class="payment-details hidden mt-4" id="bank-transfer-details">
+<p class="text-gray-600 mb-2">Our bank details will be sent to your email address.</p>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-gray-700">
+<strong>Bank:</strong> International Bank of Africa<br>
+<strong>Account Name:</strong> Busula Agri Foundation<br>
+<strong>Account Number:</strong> 1234567890<br>
+<strong>Swift Code:</strong> IBAFKNBI
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Donation Summary -->
+<div class="mb-8 bg-gray-50 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Donation Summary</h3>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between">
+<span class="text-gray-600">Donation Amount:</span>
+<span class="font-medium" id="summary-amount">$100.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Donation Type:</span>
+<span class="font-medium" id="summary-type">One-time</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Designation:</span>
+<span class="font-medium" id="summary-designation">General Fund</span>
+</div>
+<div class="border-t border-gray-300 my-2 pt-2">
+<div class="flex justify-between font-bold">
+<span>Total:</span>
+<span id="summary-total">$100.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="text-center">
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-10 py-3 !rounded-button font-medium text-center whitespace-nowrap">Complete Donation</button>
+<p class="text-sm text-gray-500 mt-3 flex items-center justify-center gap-1">
+<i class="ri-lock-line"></i>
+<span>Secure donation processed with 256-bit encryption</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+<div class="lg:col-span-1">
+<!-- Impact Information -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Your Impact</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-seedling-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">$25 provides</h4>
+<p class="text-gray-600 text-sm">Seeds and tools for a child to start their own garden plot</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-book-open-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">$50 provides</h4>
+<p class="text-gray-600 text-sm">Agricultural education materials for a classroom of 30 students</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-water-flash-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">$100 provides</h4>
+<p class="text-gray-600 text-sm">Water-efficient irrigation system for a community garden</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="ri-school-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">$250 provides</h4>
+<p class="text-gray-600 text-sm">School supplies and tuition for a vulnerable child for one year</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<div class="flex justify-center mb-4">
+<i class="ri-double-quotes-l text-primary ri-2x"></i>
+</div>
+<p class="text-gray-600 italic mb-4">
+"Thanks to the Busula Agri Foundation, I learned how to grow food for my family and even started a small business selling vegetables. Now I can pay for my siblings' education too."
+</p>
+<div class="flex items-center gap-3">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20smiling%20African%20teenage%20girl%20around%2016%20years%20old%20with%20a%20bright%2C%20hopeful%20expression.%20She%20is%20wearing%20casual%20clothing%20and%20has%20her%20hair%20styled%20neatly.%20The%20background%20is%20simple%20and%20non-distracting.%20The%20lighting%20is%20natural%20and%20flattering%2C%20creating%20a%20genuine%20portrait%20that%20conveys%20optimism%20and%20determination.&width=60&height=60&seq=test-girl&orientation=squarish" alt="Esther Kamau" class="w-12 h-12 rounded-full object-cover object-top">
+<div>
+<h4 class="font-medium text-gray-800">Esther Kamau</h4>
+<p class="text-gray-500 text-sm">Program Participant, Age 16</p>
+</div>
+</div>
+</div>
+<!-- Tax Information -->
+<div class="bg-white rounded-lg shadow-sm p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Tax Information</h3>
+<p class="text-gray-600 text-sm mb-4">
+The Busula Agri Foundation is a registered 501(c)(3) nonprofit organization. Your donation is tax-deductible to the extent allowed by law.
+</p>
+<p class="text-gray-600 text-sm">
+Tax ID: 12-3456789<br>
+A receipt will be emailed to you immediately after your donation is processed.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Section -->
+<section id="impact" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-heart-pulse-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Your Donation Makes a Difference</h2>
+<p class="text-gray-600">See how your support transforms lives and communities through our programs</p>
+</div>
+<!-- Impact Statistics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-gray-800 mb-2">1,200+</h3>
+<p class="text-gray-600">Children Supported</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-community-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-gray-800 mb-2">42</h3>
+<p class="text-gray-600">Communities Served</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-gray-800 mb-2">85</h3>
+<p class="text-gray-600">Agricultural Projects</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-school-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-gray-800 mb-2">24</h3>
+<p class="text-gray-600">School Partnerships</p>
+</div>
+</div>
+<!-- Donation Allocation Chart -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-6">How Your Donation is Used</h3>
+<p class="text-gray-600 mb-6">
+We are committed to transparency and efficiency in how we use donor funds. The majority of your donation goes directly to program services that benefit children and communities.
+</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-medium text-gray-700">Program Services</span>
+<span class="font-medium text-gray-700">82%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-medium text-gray-700">Administration</span>
+<span class="font-medium text-gray-700">10%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-medium text-gray-700">Fundraising</span>
+<span class="font-medium text-gray-700">8%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</div>
+<p class="text-sm text-gray-500 mt-4">
+Based on our 2024 financial statements. Our complete annual report is available for download.
+</p>
+<a href="#" class="text-primary font-medium flex items-center gap-1 mt-2 hover:underline">
+<i class="ri-file-download-line"></i>
+<span>Download Annual Report</span>
+</a>
+</div>
+<div>
+<div id="donation-chart" class="w-full h-80"></div>
+</div>
+</div>
+<!-- Success Stories -->
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Success Stories</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Story 1 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=A%20proud%20African%20boy%20around%2012%20years%20old%20standing%20in%20a%20thriving%20vegetable%20garden%20he%20has%20grown.%20He%20is%20smiling%20confidently%20while%20holding%20freshly%20harvested%20vegetables.%20The%20garden%20is%20well-maintained%20with%20rows%20of%20healthy%20crops.%20The%20lighting%20is%20warm%20and%20natural%2C%20creating%20a%20positive%20and%20inspiring%20image%20that%20shows%20the%20success%20of%20agricultural%20education.%20Other%20children%20can%20be%20seen%20working%20in%20the%20background.&width=400&height=250&seq=story1&orientation=landscape" alt="David's Story" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<h4 class="text-xl font-semibold text-gray-800 mb-2">David's Garden Success</h4>
+<p class="text-gray-600 mb-4">
+After losing his parents, 12-year-old David struggled to find hope. Through our agricultural program, he learned to grow food and now leads his school garden project.
+</p>
+<a href="#" class="text-primary font-medium hover:underline">Read David's full story</a>
+</div>
+</div>
+<!-- Story 2 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=A%20group%20of%20African%20women%20working%20together%20in%20a%20community%20garden%20cooperative.%20They%20are%20smiling%20and%20engaged%20in%20various%20activities%20like%20harvesting%20vegetables%20and%20preparing%20produce%20for%20market.%20The%20garden%20is%20productive%20with%20multiple%20types%20of%20vegetables%20growing.%20There%20are%20baskets%20of%20harvested%20crops%20visible.%20The%20scene%20conveys%20cooperation%2C%20empowerment%2C%20and%20economic%20opportunity.%20The%20lighting%20is%20bright%20and%20natural.&width=400&height=250&seq=story2&orientation=landscape" alt="Kakamega Women's Cooperative" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Kakamega Women's Cooperative</h4>
+<p class="text-gray-600 mb-4">
+A group of mothers formed a cooperative with our support, growing and selling organic vegetables. They now earn steady income to support their children's education.
+</p>
+<a href="#" class="text-primary font-medium hover:underline">Read their story</a>
+</div>
+</div>
+<!-- Story 3 -->
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=A%20rural%20African%20school%20with%20a%20thriving%20garden%20on%20its%20grounds.%20Students%20and%20teachers%20are%20working%20together%20in%20the%20garden%2C%20which%20has%20neat%20rows%20of%20various%20vegetables%20and%20crops.%20There%20is%20a%20small%20irrigation%20system%20visible.%20The%20school%20building%20can%20be%20seen%20in%20the%20background.%20The%20scene%20shows%20how%20agricultural%20education%20has%20been%20integrated%20into%20the%20school%20curriculum.%20The%20lighting%20is%20bright%20and%20clear.&width=400&height=250&seq=story3&orientation=landscape" alt="Mwangaza School Transformation" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Mwangaza School Transformation</h4>
+<p class="text-gray-600 mb-4">
+This rural school integrated our agricultural curriculum and now grows enough food to provide daily meals for all 230 students, improving attendance by 45%.
+</p>
+<a href="#" class="text-primary font-medium hover:underline">Read the full story</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-question-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+<p class="text-gray-600">Find answers to common questions about donating to the Busula Agri Foundation</p>
+</div>
+<div class="space-y-6">
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Is my donation tax-deductible?</h3>
+<p class="text-gray-600">
+Yes, the Busula Agri Foundation is a registered 501(c)(3) nonprofit organization. Your donation is tax-deductible to the extent allowed by law. You will receive a tax receipt via email immediately after your donation is processed.
+</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">How is my donation used?</h3>
+<p class="text-gray-600">
+82% of your donation goes directly to program services that benefit children and communities, including agricultural training, educational support, and community development initiatives. The remaining funds support essential administrative costs (10%) and fundraising efforts (8%) to sustain our work.
+</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Can I specify how my donation is used?</h3>
+<p class="text-gray-600">
+Yes, you can designate your gift to support a specific program area such as Agricultural Education, School Nutrition Program, Community Gardens, or our General Fund. If you choose the General Fund, your donation will be directed to where it's needed most.
+</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Is my payment information secure?</h3>
+<p class="text-gray-600">
+Absolutely. We use industry-standard encryption and security protocols to protect your personal and payment information. Our donation platform is PCI-compliant and uses 256-bit SSL encryption to ensure your data remains secure.
+</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Can I make a recurring donation?</h3>
+<p class="text-gray-600">
+Yes, you can choose to make a monthly recurring donation. This provides sustainable support for our programs and helps us plan effectively for the future. You can cancel or modify your recurring donation at any time by contacting our donor services team.
+</p>
+</div>
+<div class="bg-white rounded-lg p-6 shadow-sm">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">How can I get updates about how my donation is being used?</h3>
+<p class="text-gray-600">
+When you make a donation, you can opt to receive our newsletter which provides regular updates on our programs, success stories, and the impact of donor support. You can also follow us on social media for more frequent updates from the field.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Other Ways to Give Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-hand-heart-line text-primary ri-2x"></i>
+</div>
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Other Ways to Support Our Mission</h2>
+<p class="text-gray-600">Beyond financial donations, there are many ways you can help make a difference</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Volunteer -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Volunteer</h3>
+<p class="text-gray-600 mb-4">
+Share your skills and time to support our programs, whether locally or remotely. We have opportunities for various skills and interests.
+</p>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/ba5f1228-03ec-4c30-813f-f08d2cc12f9a" data-readdy="true" class="bg-white border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap transition-colors">Learn More</a>
+</div>
+<!-- Corporate Partnerships -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-building-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Corporate Partnerships</h3>
+<p class="text-gray-600 mb-4">
+Partner with us to create meaningful social impact while engaging your employees and customers in your corporate social responsibility initiatives.
+</p>
+<a href="#" class="bg-white border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap transition-colors">Partner With Us</a>
+</div>
+<!-- Fundraise -->
+<div class="bg-gray-50 rounded-lg p-6 shadow-sm text-center">
+<div class="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+<i class="ri-funds-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Start a Fundraiser</h3>
+<p class="text-gray-600 mb-4">
+Create your own fundraising campaign for birthdays, marathons, or special events. Our team will provide support and materials to help you succeed.
+</p>
+<a href="#" class="bg-white border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button font-medium inline-block whitespace-nowrap transition-colors">Start Fundraising</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Indicators Section -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Our Commitment to Transparency</h2>
+<div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 flex items-center justify-center mb-2">
+<i class="ri-award-fill text-gray-700 ri-3x"></i>
+</div>
+<p class="text-sm text-gray-600 text-center">Charity Navigator<br>4-Star Rating</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 flex items-center justify-center mb-2">
+<i class="ri-shield-check-fill text-gray-700 ri-3x"></i>
+</div>
+<p class="text-sm text-gray-600 text-center">GuideStar<br>Platinum Transparency</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 flex items-center justify-center mb-2">
+<i class="ri-government-fill text-gray-700 ri-3x"></i>
+</div>
+<p class="text-sm text-gray-600 text-center">501(c)(3)<br>Registered Nonprofit</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 flex items-center justify-center mb-2">
+<i class="ri-lock-fill text-gray-700 ri-3x"></i>
+</div>
+<p class="text-sm text-gray-600 text-center">PCI Compliant<br>Secure Donations</p>
+</div>
+</div>
+<p class="text-center text-gray-600">
+We're committed to transparency and accountability in all our operations. Our financial statements, annual reports, and program outcomes are publicly available.
+</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-primary/10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Ready to Make a Difference?</h2>
+<p class="text-gray-600 text-lg mb-8">Your support helps us transform the lives of vulnerable children through sustainable agriculture, education, and community development.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#payment-methods" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Donate Now</a>
+<a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="bg-white hover:bg-gray-100 text-primary border border-primary px-8 py-3 !rounded-button font-medium text-center whitespace-nowrap">Contact Us</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<i class="ri-plant-line text-primary ri-lg"></i>
+</div>
+<span class="text-2xl font-['Pacifico'] text-white">Busula Agri</span>
+</a>
+<p class="text-gray-400 mb-4">Dedicated to improving the lives of vulnerable children through sustainable agriculture, education, and community support.</p>
+<div class="flex gap-4">
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/2b4d0c52-ef05-45ca-b599-6326cc89933f" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/3bf1f76a-62bf-45b7-ac98-8f0565947c36" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/d475868d-f655-4a73-a9c7-62c0e25aeb30" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+<li><a href="https://readdy.ai/home/0224f211-2fc3-47a2-aca1-6d5cb22b8294/ba5f1228-03ec-4c30-813f-f08d2cc12f9a" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Volunteer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sponsor a Child</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corporate Partnerships</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fundraise for Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-3">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400">123 Mombasa Road, Nairobi, Kenya</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-mail-line text-primary mt-1"></i>
+<span class="text-gray-400">info@busulaagri.org</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-phone-line text-primary mt-1"></i>
+<span class="text-gray-400">+254 712 345 678</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-time-line text-primary mt-1"></i>
+<span class="text-gray-400">Mon-Fri: 9am-5pm EAT</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Busula Agri Foundation. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+});
+</script>
+<script id="donation-form-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Donation Type Toggle
+const donationTypeBtns = document.querySelectorAll('.donation-type-btn');
+const donationTypeDescription = document.getElementById('donation-type-description');
+donationTypeBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+donationTypeBtns.forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
+this.classList.add('active', 'bg-primary', 'text-white');
+const type = this.getAttribute('data-type');
+document.getElementById('summary-type').textContent = type === 'one-time' ? 'One-time' : 'Monthly';
+if (type === 'one-time') {
+donationTypeDescription.textContent = 'Make a one-time donation to support our programs';
+} else {
+donationTypeDescription.textContent = 'Provide ongoing support with a monthly donation';
+}
+});
+});
+// Donation Amount Selection
+const donationAmountBtns = document.querySelectorAll('.donation-amount-btn');
+const customAmountInput = document.getElementById('custom-amount');
+const summaryAmount = document.getElementById('summary-amount');
+const summaryTotal = document.getElementById('summary-total');
+function updateSummaryAmount(amount) {
+summaryAmount.textContent = `$${amount}.00`;
+summaryTotal.textContent = `$${amount}.00`;
+}
+donationAmountBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+donationAmountBtns.forEach(b => b.classList.remove('active'));
+this.classList.add('active');
+const amount = this.getAttribute('data-amount');
+customAmountInput.value = '';
+updateSummaryAmount(amount);
+});
+});
+customAmountInput.addEventListener('input', function() {
+if (this.value) {
+donationAmountBtns.forEach(b => b.classList.remove('active'));
+updateSummaryAmount(this.value);
+} else {
+const activeBtn = document.querySelector('.donation-amount-btn.active');
+if (activeBtn) {
+updateSummaryAmount(activeBtn.getAttribute('data-amount'));
+}
+}
+});
+// Gift Designation
+const designationSelect = document.getElementById('designation');
+const designationDescription = document.getElementById('designation-description');
+const summaryDesignation = document.getElementById('summary-designation');
+designationSelect.addEventListener('change', function() {
+const selectedOption = this.options[this.selectedIndex].text;
+summaryDesignation.textContent = selectedOption;
+switch(this.value) {
+case 'general':
+designationDescription.textContent = 'Your donation will be used where it\'s needed most to support our programs and initiatives.';
+break;
+case 'education':
+designationDescription.textContent = 'Your donation will support agricultural education programs for children and youth.';
+break;
+case 'nutrition':
+designationDescription.textContent = 'Your donation will help provide nutritious meals for school children through our garden programs.';
+break;
+case 'gardens':
+designationDescription.textContent = 'Your donation will support the development of sustainable community gardens.';
+break;
+}
+});
+// Payment Method Selection
+const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+const paymentDetails = document.querySelectorAll('.payment-details');
+paymentMethods.forEach(method => {
+method.addEventListener('change', function() {
+paymentDetails.forEach(details => details.classList.add('hidden'));
+document.getElementById(`${this.id}-details`).classList.remove('hidden');
+});
+});
+});
+</script>
+<script id="donation-chart-script">
+document.addEventListener('DOMContentLoaded', function() {
+const chartDom = document.getElementById('donation-chart');
+const myChart = echarts.init(chartDom);
+const option = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+borderColor: '#eee',
+borderWidth: 1,
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+top: '5%',
+left: 'center',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Donation Allocation',
+type: 'pie',
+radius: ['40%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false,
+position: 'center'
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 16,
+fontWeight: 'bold',
+formatter: '{b}: {c}%'
+}
+},
+labelLine: {
+show: false
+},
+data: [
+{ value: 82, name: 'Program Services', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 10, name: 'Administration', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 8, name: 'Fundraising', itemStyle: { color: 'rgba(251, 191, 114, 1)' } }
+]
+}
+]
+};
+myChart.setOption(option);
+window.addEventListener('resize', function() {
+myChart.resize();
+});
+});
+</script>
+</body>
+</html>
